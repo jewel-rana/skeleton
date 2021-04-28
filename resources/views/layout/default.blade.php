@@ -5,10 +5,10 @@
 </head>
 <body>
 <div class="wrapper">
-    <!-- HTML preloader -->
-    <div id="preloader">
-        <div id="status"></div>
-    </div>
+{{--    <!-- HTML preloader -->--}}
+{{--    <div id="preloader">--}}
+{{--        <div id="status"></div>--}}
+{{--    </div>--}}
 
     <!-- Start Of Header Section -->
     <header>
