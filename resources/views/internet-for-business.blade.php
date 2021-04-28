@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="banner-box">
                     <div class="banner-image">
-                        <img src="./images/Internet-Deals.png" alt="" title="">
+                        <img src="./images/118.png" alt="" title="">
                     </div>
                     <div class="banner-info">
                         <h1 class="white-color">Internet Deals</h1>
@@ -172,6 +172,18 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="internet-for-business">
+                        <h1>All proces ex. VAT NB settings for checkout</h1>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </section>
     <!-- End Of Enjoy our best deals Section -->
@@ -220,12 +232,12 @@
                 <div class="col-sm-12">
                     <div class="plans-tab-menu">
                         <ul>
-                            <li><a data-toggle="pill" href="#pt1">TV Deals</a></li>
-                            <li  class="active"><a data-toggle="pill" href="#pt2">mobile Deals</a></li>
-                            <li><a data-toggle="pill" href="#pt3">LANDLINE Deals</a></li>
-                            <li><a data-toggle="pill" href="#pt4">Contract Length</a></li>
-                            <li><a data-toggle="pill" href="#pt5">RURAL DEALS</a></li>
-                            <li><a data-toggle="pill" href="#pt6">Over 60s Deals</a></li>
+                            <li><a data-toggle="pill" href="#pt1">Speed</a></li>
+                            <li  class="active"><a data-toggle="pill" href="#pt2">Contract Length</a></li>
+                            <li><a data-toggle="pill" href="#pt3">+ High Speed Router</a></li>
+                            <li><a data-toggle="pill" href="#pt4">+ ANytime calls</a></li>
+                            <li><a data-toggle="pill" href="#pt5">+ Mobile</a></li>
+                            <li><a data-toggle="pill" href="#pt6">+ TV</a></li>
                         </ul>
                     </div>
                     <div class="plans-tab-list">
