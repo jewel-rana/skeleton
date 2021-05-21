@@ -1,9 +1,5 @@
 const mix = require('laravel-mix');
 
-mix.options({
-    processCssUrls: false
-});
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -15,10 +11,8 @@ mix.options({
  |
  */
 
-mix.copy('resources/js/plugin.js', 'public/js')
-    .copy('resources/js/custom-scripts.js', 'public/js')
-    .copy('resources/css/custom.css', 'public/css')
-    .copy('resources/css/custom-media.css', 'public/css')
-    .copy('resources/css/plugin.css', 'public/css');
-
-mix.copyDirectory('resources/fonts','public/fonts');
+mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+]);
