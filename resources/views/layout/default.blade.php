@@ -29,6 +29,7 @@
     </div>
     <!-- End Of Back To Top Section -->
 </div>
-<script src="./js/custom-scripts.js"></script>
+<script src="{{ mix('assets/js/app.js') }}"></script>
+<script src="{{ asset('assets/js/scripts.js') }}"></script>
 </body>
 </html>
