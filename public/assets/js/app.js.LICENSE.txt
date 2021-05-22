@@ -1,0 +1,7 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under the MIT license
+ */
+
+/*! jQuery v2.2.0 | (c) jQuery Foundation | jquery.org/license */

@@ -1,5 +1,6 @@
 {
     "Dashboard": true,
     "Product": true,
-    "Category": true
+    "Category": true,
+    "Page": true
 }
