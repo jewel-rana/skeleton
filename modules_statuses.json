@@ -2,5 +2,11 @@
     "Dashboard": true,
     "Product": true,
     "Category": true,
-    "Page": true
+    "Page": true,
+    "User": true,
+    "Customer": true,
+    "Role": true,
+    "Permission": true,
+    "Deal": true,
+    "Slider": true
 }

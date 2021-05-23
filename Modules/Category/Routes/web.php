@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('category')->group(function() {
+Route::prefix('dashboard')->group(function() {
     Route::resource('category', 'CategoryController');
 });

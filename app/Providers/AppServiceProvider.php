@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Nwidart\Modules\LaravelModulesServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(LaravelModulesServiceProvider::class);
+        $this->app->register(BladeServiceProvider::class);
+        $this->app->register(RepositoryServiceProvider::class);
+        $this->app->register(ViewServiceProvider::class);
     }
 
     /**
@@ -23,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
     }
 }

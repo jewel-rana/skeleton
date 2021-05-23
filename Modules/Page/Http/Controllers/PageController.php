@@ -14,7 +14,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('page::index');
+        return view('page::index')->withTitle('Pages');
     }
 
     /**
@@ -23,7 +23,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('page::create');
+        return view('page::create')->withTitle('Add new page');
     }
 
     /**
@@ -43,7 +43,7 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        return view('page::show');
+        return view('page::show')->withTitle('Show page');
     }
 
     /**
@@ -53,7 +53,7 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        return view('page::edit');
+        return view('page::edit')->withTitle('Update page');
     }
 
     /**

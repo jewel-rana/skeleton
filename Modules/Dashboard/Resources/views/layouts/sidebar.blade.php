@@ -5,12 +5,8 @@
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="{{ route('dashboard') }}"><span
                         class="brand-logo">
-                    <h2 class="brand-text">POPTelecom</h2>
+                        <h2 class="brand-text">POPTelecom</h2></span>
                 </a></li>
-            <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
-                        class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
-                        class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc"
-                        data-ticon="disc"></i></a></li>
         </ul>
     </div>
     <div class="shadow-bottom"></div>
@@ -26,7 +22,7 @@
             </li>
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('product.index') }}">
-                    <i data-feather="email"></i><span class="menu-title text-truncate" data-i18n="Email">Products</span>
+                    <i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Email">Products</span>
                 </a>
             </li>
             <li class=" nav-item">
@@ -40,13 +36,31 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="/">
+                <a class="d-flex align-items-center" href="{{ route('slider.index') }}">
                     <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Slider</span>
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="/">
-                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Plans</span>
+                <a class="d-flex align-items-center" href="{{ route('deal.index') }}">
+                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Deals</span>
+                </a>
+            </li>
+            <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Administration</span><i
+                    data-feather="more-horizontal"></i>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('user.index') }}">
+                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Users</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('role.index') }}">
+                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Roles</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('permission.index') }}">
+                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Permissions</span>
                 </a>
             </li>
         </ul>

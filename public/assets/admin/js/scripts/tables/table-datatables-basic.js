@@ -10,18 +10,20 @@ $(function () {
     dt_complex_header_table = $('.dt-complex-header'),
     dt_row_grouping_table = $('.dt-row-grouping'),
     dt_multilingual_table = $('.dt-multilingual'),
-    assetPath = '../../../app-assets/';
+    assetPath = basePath;
 
   if ($('body').attr('data-framework') === 'laravel') {
     assetPath = $('body').attr('data-asset-path');
   }
+
+  alert(assetPath);
 
   // DataTable with buttons
   // --------------------------------------------------------------------
 
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: assetPath + 'data/table-datatable.json',
+      ajax: assetPath + '/assets/admin/data/table-datatable.json',
       columns: [
         { data: 'responsive_id' },
         { data: 'id' },
@@ -220,8 +222,7 @@ $(function () {
           text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Add New Record',
           className: 'create-new btn btn-primary',
           attr: {
-            'data-toggle': 'modal',
-            'data-target': '#modals-slide-in'
+            'src': basePath + '/dashboard/product',
           },
           init: function (api, node, config) {
             $(node).removeClass('btn-secondary');
@@ -269,7 +270,7 @@ $(function () {
         }
       }
     });
-    $('div.head-label').html('<h6 class="mb-0">DataTable with Buttons</h6>');
+    $('div.head-label').html('<h6 class="mb-0">Products</h6>');
   }
 
   // Flat Date picker

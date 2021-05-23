@@ -3,18 +3,47 @@
 namespace Modules\Product\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Modules\Product\Entities\Product;
+use Modules\Product\Http\Requests\ProductCreateRequest;
+use Modules\Product\Http\Requests\ProductUpdateRequest;
+use Modules\Product\ProductService;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {
+    private $products;
+
+    public function __construct(ProductService $products)
+    {
+        $this->products = $products;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index( Request $request)
     {
-        return view('product::index');
+        if($request->wantsJson()) {
+            $users = DB::table('users')->select(['id', 'name', 'email', 'created_at', 'updated_at']);
+
+            return Datatables::of($users)
+                ->filter(function ($query) use ($request) {
+                    if ($request->has('name')) {
+                        $query->where('name', 'like', "%{$request->get('name')}%");
+                    }
+
+                    if ($request->has('email')) {
+                        $query->where('email', 'like', "%{$request->get('email')}%");
+                    }
+                })
+                ->make(true);
+        }
+        return view('product::index')->withTitle('Products');
     }
 
     /**
@@ -23,17 +52,23 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product::create');
+        return view('product::create')->withTitle('Add new product');
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param ProductCreateRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request): RedirectResponse
     {
-        //
+        try {
+            $this->products->update($request->validated(), $id);
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+        }
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -41,9 +76,9 @@ class ProductController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        return view('product::show');
+        return view('product::show')->withTitle('Show product');
     }
 
     /**
@@ -51,29 +86,39 @@ class ProductController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        return view('product::edit');
+        return view('product::edit')->withTitle('Update product');
     }
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param ProductUpdateRequest $request
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(ProductUpdateRequest $request, $id): RedirectResponse
     {
-        //
+        try {
+            $this->products->update($request->validated(), $id);
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+        }
+
+        return redirect()->route('product.index');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
+     * @param Product $product
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Product $product): RedirectResponse
     {
-        //
+        if(!auth()->user()->can('product-delete'))
+            session()->flash('error', 'You have no right to delete product');
+
+        $product->delete();
+        return redirect()->back();
     }
 }
