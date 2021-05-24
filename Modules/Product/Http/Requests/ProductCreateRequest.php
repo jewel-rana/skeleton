@@ -15,9 +15,16 @@ class ProductCreateRequest extends FormRequest
     {
         return [
             'title' => 'bail|required|unique:products,title',
+            'slug' => 'bail|nullable|unique:products,slug',
             'description' => 'bail|required',
             'price' => 'bail|required|numeric',
-            'category_id' => 'bail|required|integer|exists:categories,id'
+            'category_id' => 'bail|required|integer|exists:categories,id',
+            'upfront_price' => 'bail|nullable|numeric',
+            'install_price' => 'bail|nullable|numeric',
+            'sku' => 'bail|required|unique:products,sku',
+            'price_type' => 'bail|required|in:onetime,monthly,yearly',
+            'status' => 'bail|required|in:0,1',
+            'attachment' => 'bail|mimes:jpg,jpeg,png,gif'
         ];
     }
 

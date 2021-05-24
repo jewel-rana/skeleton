@@ -33,7 +33,7 @@
                                         <select name="role" class="form-control">
                                             <option value="">{{ __('Select role') }}</option>
                                             @foreach($role_lists as $key => $value)
-                                                <option value="{{ $key }}">{{ $value }}</option>
+                                                <option value="{{ $key }}" @if(old('role')) selected @endif>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>

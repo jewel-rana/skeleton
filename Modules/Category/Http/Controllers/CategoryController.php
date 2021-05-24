@@ -31,7 +31,11 @@ class CategoryController extends Controller
         if($request->wantsJson()) {
             $categories = Category::select(['id', 'name', 'description']);
 
-            return Datatables::of($categories)->make(true);
+            return Datatables::of($categories)
+                ->addColumn('action', function($category) {
+                    return "<a href='" . route('category.edit', $category->id) . "' class='btn btn-outline-secondary'>Edit</a>";
+                })
+                ->make(true);
         }
         return view('category::index')->withTitle('Categories');
     }
@@ -97,7 +101,7 @@ class CategoryController extends Controller
             session()->flash('error', $exception->getMessage());
         }
 
-        return redirect()->route('product.index');
+        return redirect()->route('category.index');
     }
 
     /**

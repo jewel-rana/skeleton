@@ -17,7 +17,8 @@ class UserUpdateRequest extends FormRequest
             'name' => 'bail|required',
             'email' => 'bail|required|email|unique:users,email,' . $this->user,
             'mobile' => 'bail|nullable',
-            'password' => 'bail|nullable|min:8|max:20|same:password_confirm',
+            'password' => 'bail|nullable|min:8|max:20',
+            'password_confirm' => 'bail|nullable|same:password_confirm',
             'role' => 'bail|required|numeric|exists:roles,id'
         ];
     }

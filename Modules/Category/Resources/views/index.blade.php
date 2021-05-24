@@ -60,7 +60,7 @@
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
                     {data: 'description', name: 'description'},
-                    {data: 'id', name: 'id'}
+                    {data: 'action', name: 'action', searchable: false, orderable: false}
                 ]
             });
 

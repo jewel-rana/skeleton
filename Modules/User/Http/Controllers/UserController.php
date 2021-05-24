@@ -85,19 +85,19 @@ class UserController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(User $user): Renderable
     {
-        return view('user::show')->withTitle('Show user');
+        return view('user::show', compact('user'))->withTitle('Show user');
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     * @param User $user
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(User $user): Renderable
     {
-        return view('user::edit')->withTitle('Update user');
+        return view('user::edit', compact('user'))->withTitle('Update user');
     }
 
     /**
@@ -109,7 +109,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id): RedirectResponse
     {
         try {
-            $this->users->create($request->validated());
+            $this->users->update($request->only(['name', 'email', 'mobile']), $id);
         } catch (\Throwable $exception) {
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
@@ -121,10 +121,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return  redirect()->back();
     }
 }

@@ -18,8 +18,18 @@ class RoleService
         $this->repository = $repository;
     }
 
-    public function getRoleDropdown()
+    public function getRoleDropdown(): array
     {
         return $this->repository->all()->where('name', '!=', 'customer')->pluck('name', 'id')->toArray();
+    }
+
+    public function create(array $data)
+    {
+        return $this->repository->create($data + ['guard_name' => 'web']);
+    }
+
+    public function update(array $data, int $id)
+    {
+        return $this->repository->update($data, $id);
     }
 }

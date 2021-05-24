@@ -28,13 +28,17 @@ class ProductController extends Controller
     public function index( Request $request)
     {
         if($request->wantsJson()) {
-            $users = Product::with(['category'])->select(['id', 'title', 'category_id', 'price', 'created_at']);
+            $products = Product::with(['category'])->select(['id', 'title', 'category_id', 'price', 'created_at']);
 
-            return Datatables::of($users)
+            return Datatables::of($products)
                 ->filter(function ($query) use ($request) {
                     if ($request->has('title')) {
                         $query->where('title', 'like', "%{$request->get('title')}%");
                     }
+                })
+                ->addColumn('action', function($product) {
+                    return "<a href='" . route('product.show', $product->id) . "' class='btn btn-primary'>View</a>
+                            <a href='" . route('product.edit', $product->id) . "' class='btn btn-outline-secondary'>Edit</a>";
                 })
                 ->make(true);
         }
@@ -82,9 +86,9 @@ class ProductController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit(Product $product)
+    public function edit(Product $product): Renderable
     {
-        return view('product::edit')->withTitle('Update product');
+        return view('product::edit', compact('product'))->withTitle('Update product');
     }
 
     /**
@@ -99,6 +103,7 @@ class ProductController extends Controller
             $this->products->update($request->validated(), $id);
         } catch (\Throwable $exception) {
             session()->flash('error', $exception->getMessage());
+            return redirect()->back();
         }
 
         return redirect()->route('product.index');

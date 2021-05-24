@@ -107,7 +107,7 @@
                     {data: 'title', name: 'title'},
                     {data: 'category.name', name: 'category'},
                     {data: 'price', name: 'price'},
-                    {data: 'id'}
+                    {data: 'action', searchable: false, orderable: false}
                 ]
             });
 

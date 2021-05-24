@@ -5,11 +5,8 @@
         <div class="row">
             <div class="col-md-6 col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Add new category</h4>
-                    </div>
                     <div class="card-body">
-                        <form class="form form-vertical" action="{{ route('category.store') }}" method="POST">
+                        <form class="form form-vertical" action="{{ route('role.store') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -19,13 +16,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-vertical">Description</label>
-                                        <textarea id="email-id-vertical" class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary mr-1">Create</button>
+                                    <button type="submit" class="btn btn-primary mr-1">{{ __('Create') }}</button>
                                 </div>
                             </div>
                         </form>

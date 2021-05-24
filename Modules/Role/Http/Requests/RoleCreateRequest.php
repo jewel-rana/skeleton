@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Category\Http\Requests;
+namespace Modules\Role\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryUpdateRequest extends FormRequest
+class RoleCreateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,8 +14,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|alpha|unique:categories,name,' . $this->category,
-            'description' => 'bail|nullable'
+            'name' => 'bail|required|unique:roles,name'
         ];
     }
 

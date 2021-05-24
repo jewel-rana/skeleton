@@ -16,13 +16,13 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="first-name-vertical">Name <span class="error">*</span></label>
-                                        <input type="text" id="first-name-vertical" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" />
+                                        <input type="text" id="first-name-vertical" class="form-control" name="name" value="{{ old('name', $category->name) }}" placeholder="Name" />
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="email-id-vertical">Description</label>
-                                        <textarea type="email" id="email-id-vertical" class="form-control" name="description" value="{{ old('description') }}" placeholder="Description"></textarea>
+                                        <textarea type="email" id="email-id-vertical" class="form-control" name="description" placeholder="Description">{{ old('description', $category->description) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">

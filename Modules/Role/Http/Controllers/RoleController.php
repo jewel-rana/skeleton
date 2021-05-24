@@ -3,17 +3,42 @@
 namespace Modules\Role\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Role\Http\Requests\RoleCreateRequest;
+use Modules\Role\Http\Requests\RoleUpdateRequest;
+use Modules\Role\RoleService;
+use Spatie\Permission\Models\Role;
+use Yajra\DataTables\Facades\DataTables;
 
 class RoleController extends Controller
 {
+    private $roles;
+
+    public function __construct(RoleService $roles)
+    {
+        $this->roles = $roles;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->wantsJson()) {
+            $roles = Role::with(['permissions'])->select(['id', 'name']);
+
+            return Datatables::of($roles)
+                ->addColumn('action', function($role) {
+                    return "<a href='" . route('role.edit', $role->id) . "' class='btn btn-outline-secondary'>Edit</a>";
+                })
+                ->editColumn('permissions', function($role) {
+                    return $role->permissions->implode(',');
+                })
+                ->make(true);
+        }
         return view('role::index')->withTitle('Roles');
     }
 
@@ -28,52 +53,68 @@ class RoleController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param RoleCreateRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(RoleCreateRequest $request): RedirectResponse
     {
-        //
+        try {
+            $this->roles->create($request->validated());
+        } catch (\Throwable $exception) {
+            dd($exception);
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('role.index');
     }
 
     /**
      * Show the specified resource.
-     * @param int $id
+     * @param Role $role
      * @return Renderable
      */
-    public function show($id)
+    public function show(Role $role): Renderable
     {
-        return view('role::show')->withTitle('Show role');
+        return view('role::show', compact('role'))->withTitle('Show role');
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     * @param Role $role
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Role $role): Renderable
     {
-        return view('role::edit')->withTitle('Update role');
+        return view('role::edit', compact('role'))->withTitle('Update role');
     }
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param RoleUpdateRequest $request
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(RoleUpdateRequest $request, $id): RedirectResponse
     {
-        //
+        try {
+            $this->roles->update($request->validated(), $id);
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('user.index');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
+     * @param Role $role
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return  redirect()->back();
     }
 }

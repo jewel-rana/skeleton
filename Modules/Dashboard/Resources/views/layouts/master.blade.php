@@ -30,7 +30,7 @@
                         @if( request()->segment(3) === null)
                             <a href="{{ url('dashboard/' . request()->segment(2) . '/create') }}" class="btn btn-primary"><i class="mr-1" data-feather="plus"></i><span class="align-middle">Add new {{ request()->segment(2) }}</span></a>
                         @else
-                            <a href="#" class="btn btn-default"><i class="mr-1" data-feather="arrow-left"></i><span class="align-middle">Back</span></a>
+                            <a href="javascript:void(window.history.back())" class="btn btn-default"><i class="mr-1" data-feather="arrow-left"></i><span class="align-middle">Back</span></a>
                         @endif
                     @endif
                     <div class="dropdown">

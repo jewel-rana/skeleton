@@ -4,6 +4,7 @@
 namespace Modules\User;
 
 
+use Illuminate\Support\Facades\Hash;
 use Modules\User\Repository\UserRepositoryInterface;
 
 class UserService
@@ -27,6 +28,9 @@ class UserService
 
     public function update(array $data, $id)
     {
+        if(request()->input('password') !== null) {
+            $data['password'] = Hash::make(request()->input('password'));
+        }
         return $this->repository->update($data, $id);
     }
 }
