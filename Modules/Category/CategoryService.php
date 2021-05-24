@@ -27,6 +27,6 @@ class CategoryService
 
     public function getCategoryDropdown(): array
     {
-        return $this->repository->all()->pluck('id', 'name')->toArray();
+        return $this->repository->all()->pluck('name', 'id')->toArray();
     }
 }

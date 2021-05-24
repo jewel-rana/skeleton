@@ -15,10 +15,10 @@
                     <table class="table" id="productTable" style="width: 100%;">
                         <thead>
                         <tr>
-                            <th>Project</th>
-                            <th>Client</th>
-                            <th>Users</th>
-                            <th>Status</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Price</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -104,10 +104,10 @@
                 },
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'name', name: 'name'},
-                    {data: 'email', name: 'email'},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'updated_at', name: 'updated_at'}
+                    {data: 'title', name: 'title'},
+                    {data: 'category.name', name: 'category'},
+                    {data: 'price', name: 'price'},
+                    {data: 'id'}
                 ]
             });
 

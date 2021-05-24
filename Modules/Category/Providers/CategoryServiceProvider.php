@@ -2,6 +2,7 @@
 
 namespace Modules\Category\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Modules\Category\Repository\CategoryRepository;
@@ -41,6 +42,9 @@ class CategoryServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        View::composer(
+            ['user::create', 'user::edit'], 'Modules\Category\Http\View\CategoryComposer'
+        );
     }
 
     /**

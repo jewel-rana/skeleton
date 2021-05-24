@@ -6,7 +6,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
 use Modules\Product\Entities\Product;
 use Modules\Product\Http\Requests\ProductCreateRequest;
 use Modules\Product\Http\Requests\ProductUpdateRequest;
@@ -29,16 +28,12 @@ class ProductController extends Controller
     public function index( Request $request)
     {
         if($request->wantsJson()) {
-            $users = DB::table('users')->select(['id', 'name', 'email', 'created_at', 'updated_at']);
+            $users = Product::with(['category'])->select(['id', 'title', 'category_id', 'price', 'created_at']);
 
             return Datatables::of($users)
                 ->filter(function ($query) use ($request) {
-                    if ($request->has('name')) {
-                        $query->where('name', 'like', "%{$request->get('name')}%");
-                    }
-
-                    if ($request->has('email')) {
-                        $query->where('email', 'like', "%{$request->get('email')}%");
+                    if ($request->has('title')) {
+                        $query->where('title', 'like', "%{$request->get('title')}%");
                     }
                 })
                 ->make(true);
@@ -63,9 +58,10 @@ class ProductController extends Controller
     public function store(ProductCreateRequest $request): RedirectResponse
     {
         try {
-            $this->products->update($request->validated(), $id);
+            $this->products->create($request->validated());
         } catch (\Throwable $exception) {
             session()->flash('error', $exception->getMessage());
+            return redirect()->back();
         }
 
         return redirect()->route('product.index');

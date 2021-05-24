@@ -2,8 +2,11 @@
 
 namespace Modules\Role\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Role\Repository\RoleRepository;
+use Modules\Role\Repository\RoleRepositoryInterface;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -28,6 +31,9 @@ class RoleServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        View::composer(
+            '*', 'Modules\Role\Http\View\RoleComposer'
+        );
     }
 
     /**
@@ -38,6 +44,7 @@ class RoleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
     }
 
     /**

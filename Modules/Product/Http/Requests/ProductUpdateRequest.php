@@ -16,7 +16,8 @@ class ProductUpdateRequest extends FormRequest
         return [
             'title' => 'bail|required|unique:products,title,' . $this->product,
             'description' => 'bail|required',
-            'price' => 'bail|required|numeric'
+            'price' => 'bail|required|numeric',
+            'category_id' => 'bail|required|integer|exists:categories,id'
         ];
     }
 

@@ -4,7 +4,7 @@
 namespace Modules\User\Repository;
 
 
-class UserRepositoryInterface
+interface UserRepositoryInterface
 {
 
 }

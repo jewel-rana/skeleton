@@ -4,7 +4,9 @@ namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Category\Entities\Category;
 use Modules\Product\Database\factories\ProductFactory;
 
 class Product extends Model
@@ -13,7 +15,12 @@ class Product extends Model
 
     protected $guarded = [];
 
-    protected static function newFactory()
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    protected static function newFactory(): ProductFactory
     {
         return ProductFactory::new();
     }

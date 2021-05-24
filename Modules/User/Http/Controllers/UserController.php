@@ -2,18 +2,54 @@
 
 namespace Modules\User\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\User\Http\Requests\UserCreateRequest;
+use Modules\User\Http\Requests\UserUpdateRequest;
+use Modules\User\UserService;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
+    private $users;
+    public function __construct(UserService $users)
+    {
+        $this->users = $users;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->wantsJson()) {
+            $users = User::with(['roles'])->select(['id', 'name', 'email', 'created_at'])
+                ->whereHas('roles', function ($query) {
+                    $query->where('name', '!=', 'customer');
+                });
+
+            return Datatables::of($users)
+                ->filter(function ($query) use ($request) {
+                    if ($request->has('name')) {
+                        $query->where('name', 'like', "%{$request->get('name')}%");
+                    }
+                    if ($request->has('email')) {
+                        $query->where('email', 'like', "%{$request->get('email')}%");
+                    }
+                })
+                ->addColumn('role', function ($user) {
+                    return $user->roles->first()->name;
+                })
+                ->addColumn('action', function($user) {
+                    return "<a href='" . route('user.edit', $user->id) . "' class='btn btn-outline-secondary'>Edit</a>";
+                })
+                ->removeColumn('roles')
+                ->make(true);
+        }
         return view('user::index')->withTitle('Users');
     }
 
@@ -28,12 +64,20 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param UserCreateRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request): RedirectResponse
     {
-        //
+        try {
+            $this->users->create($request->validated());
+        } catch (\Throwable $exception) {
+            dd($exception);
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -60,11 +104,18 @@ class UserController extends Controller
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id): RedirectResponse
     {
-        //
+        try {
+            $this->users->create($request->validated());
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('user.index');
     }
 
     /**

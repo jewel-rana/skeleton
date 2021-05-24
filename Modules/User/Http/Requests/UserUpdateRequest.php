@@ -11,10 +11,14 @@ class UserUpdateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'name' => 'bail|required',
+            'email' => 'bail|required|email|unique:users,email,' . $this->user,
+            'mobile' => 'bail|nullable',
+            'password' => 'bail|nullable|min:8|max:20|same:password_confirm',
+            'role' => 'bail|required|numeric|exists:roles,id'
         ];
     }
 
@@ -23,7 +27,7 @@ class UserUpdateRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
