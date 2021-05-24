@@ -30,6 +30,7 @@
     <!-- End Of Back To Top Section -->
 </div>
 <script src="{{ mix('assets/js/app.js') }}"></script>
-<script src="{{ asset('assets/js/scripts.js') }}"></script>
+<script src="{{ asset('assets/js/plugin.js') }}"></script>
+<script src="{{ asset('assets/js/custom-scripts.js') }}"></script>
 </body>
 </html>

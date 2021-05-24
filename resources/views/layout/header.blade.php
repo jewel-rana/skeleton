@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-1 col-height col-middle">
                 <div class="logo">
-                    <a href="{{route('home')}}"><img src="./images/Logo.png" alt="" title=""></a>
+                    <a href="{{route('home')}}"><img src="./assets/images/Logo.png" alt="" title=""></a>
                 </div>
             </div>
             <div class="col-xs-8 visible-xs">
@@ -60,7 +60,7 @@
         <div class="row">
             <div class="topbar-box">
                 <div class="topbar-icon">
-                    <img src="./images/call-icon.png" alt="" title="">
+                    <img src="./assets/images/call-icon.png" alt="" title="">
                 </div>
                 <div class="topbar-info">
                     <h6>Get in touch</h6>
@@ -69,7 +69,7 @@
             </div>
             <div class="topbar-box">
                 <div class="topbar-icon">
-                    <img src="./images/easy-installation-icon.png" alt="" title="">
+                    <img src="./assets/images/easy-installation-icon.png" alt="" title="">
                 </div>
                 <div class="topbar-info">
                     <h6>Easy installation</h6>
@@ -78,7 +78,7 @@
             </div>
             <div class="topbar-box">
                 <div class="topbar-icon">
-                    <img src="./images/here-to-help-icon.png" alt="" title="">
+                    <img src="./assets/images/here-to-help-icon.png" alt="" title="">
                 </div>
                 <div class="topbar-info">
                     <h6>Here to help!</h6>
@@ -87,7 +87,7 @@
             </div>
             <div class="topbar-box">
                 <div class="topbar-icon">
-                    <img src="./images/postcode-icon.png" alt="" title="">
+                    <img src="./assets/images/postcode-icon.png" alt="" title="">
                 </div>
                 <div class="topbar-info">
                     <h6>Check my postcode</h6>

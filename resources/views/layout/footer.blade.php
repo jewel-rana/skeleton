@@ -50,7 +50,7 @@
         <div class="col-5">
             <div class="footer-box social-media-box">
                 <div class="footer-logo">
-                    <img src="./images/Logo.png">
+                    <img src="./assets/images/Logo.png">
                 </div>
                 <ul>
                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
@@ -62,5 +62,5 @@
     </div>
 </div>
 <div class="live-chat-box">
-    <a href="#" class="button pink-bg">Live CHAT <img src="./images/live-chat-icon.png"></a>
+    <a href="#" class="button pink-bg">Live CHAT <img src="./assets/images/live-chat-icon.png"></a>
 </div>

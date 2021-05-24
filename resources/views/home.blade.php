@@ -4,7 +4,7 @@
     <section>
         <div class="hero-box">
             <div class="hero-image">
-                <img src="./images/Hero-Image.png" alt="" title="">
+                <img src="./assets/images/Hero-Image.png" alt="" title="">
             </div>
             <div class="hero-info wow fadeInRight">
                 <h1 class="title-text white-color">Defining digital connections. Flexible, cheap and reliable TV, mobile and Internet.</h1>
@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeInUp">
                     <div class="reviews-box">
-                        <img src="./images/reviews-image.jpg" alt="" title="">
+                        <img src="./assets/images/reviews-image.jpg" alt="" title="">
                     </div>
                 </div>
 
@@ -244,7 +244,7 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeInUp">
                     <div class="find-connection">
-                        <h2><img src="./images/postcode-icon.png" alt="" title="">We help you find your best connection.</h2>
+                        <h2><img src="./assets/images/postcode-icon.png" alt="" title="">We help you find your best connection.</h2>
                         <h5>Check my postcode</h5>
                         <form>
                             <input type="" name="" placeholder="Enter your Landline">
@@ -264,7 +264,7 @@
 
                 <div class="col-sm-6 wow fadeInLeft">
                     <div class="pop-tv-image">
-                        <img src="./images/pop-tv-image.png">
+                        <img src="./assets/images/pop-tv-image.png">
                     </div>
                 </div>
                 <div class="col-sm-6 wow fadeInRight">
@@ -298,7 +298,7 @@
             </div>
             <div class="col-sm-7 col-height col-middle wow fadeInRight">
                 <div class="turbo-charge-pop-tv-image">
-                    <img src="./images/turbo-charge-pop-tv-image.png">
+                    <img src="./assets/images/turbo-charge-pop-tv-image.png">
                 </div>
             </div>
         </div>
@@ -376,7 +376,7 @@
                             </ul>
                         </div>
                         <div class="plans-icon">
-                            <figure><img src="./images/v.png" alt="" title=""></figure>
+                            <figure><img src="./assets/images/v.png" alt="" title=""></figure>
                         </div>
                         <div class="plans-button">
                             <a href="#" class="button button-border pink-color">BUY now</a>
@@ -411,7 +411,7 @@
                             </ul>
                         </div>
                         <div class="plans-icon">
-                            <figure><img src="./images/v.png" alt="" title=""></figure>
+                            <figure><img src="./assets/images/v.png" alt="" title=""></figure>
                         </div>
                         <div class="plans-button">
                             <a href="#" class="button button-border pink-color">BUY now</a>
@@ -450,7 +450,7 @@
                             </ul>
                         </div>
                         <div class="plans-icon">
-                            <figure><img src="./images/o.png" alt="" title=""></figure>
+                            <figure><img src="./assets/images/o.png" alt="" title=""></figure>
                         </div>
                         <div class="plans-button">
                             <a href="#" class="button button-border pink-color">BUY now</a>
@@ -483,7 +483,7 @@
             <div class="row">
                 <div class="col-md-5 love-superfast-wifi-box wow fadeInRight">
                     <div class="love-superfast-wifi-info">
-                        <img src="./images/Icon-weather-lightning.png">
+                        <img src="./assets/images/Icon-weather-lightning.png">
                         <h1 class="title-text white-color">Love superfast wifi?</h1>
                         <p>Need to stream TV whilst the kids are gaming, your family is browsing the internet and order your next food shop…we have the best high speed routers for you!</p>
                         <a href="#" class="button pink-bg">Shop deal</a>
@@ -499,7 +499,7 @@
             <div class="row Switching-row">
                 <div class="col-sm-12">
                     <div class="swich-img-box">
-                        <img src="./images/swich.png">
+                        <img src="./assets/images/swich.png">
                     </div>
                 </div>
                 <div class="col-sm-3 wow fadeInLeft">
@@ -514,7 +514,7 @@
                             <h1 class="title-big-text pink-color">1</h1>
                         </div>
                         <div class="number-icon-box">
-                            <img src="./images/number-icon-01.png">
+                            <img src="./assets/images/number-icon-01.png">
                             <h3 class="large-size">Shop</h3>
                             <p class="blue-color">Find the deal or bundle that suits your household.</p>
                         </div>
@@ -526,7 +526,7 @@
                             <h1 class="title-big-text pink-color">2</h1>
                         </div>
                         <div class="number-icon-box">
-                            <img src="./images/number-icon-02.png">
+                            <img src="./assets/images/number-icon-02.png">
                             <h3 class="large-size">Sit back relax</h3>
                             <p class="blue-color">We will notify your provider you are switching and take care of every step.</p>
                         </div>
@@ -538,7 +538,7 @@
                             <h1 class="title-big-text pink-color">3</h1>
                         </div>
                         <div class="number-icon-box">
-                            <img src="./images/number-icon-03.png">
+                            <img src="./assets/images/number-icon-03.png">
                             <h3 class="large-size">Plug in</h3>
                             <p class="blue-color">Plug in the router on the day of transfer and enjoy great broadband at a great price.</p>
                         </div>

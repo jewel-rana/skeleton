@@ -1,0 +1,158 @@
+@media screen and (max-width:1799px) {
+	.title-text { font-size: 48px; line-height: 50px; }
+	.empty-space { padding: 80px 0px; }
+	.empty-space-top { padding-top: 80px; }
+	.empty-space-bottom { padding-bottom: 80px; }
+	.button { font-size: 16px; line-height: 28px; padding: 12px 55px; }
+
+	.large-size { font-size: 30px; }
+	.title-big-text { font-size: 60px; line-height: 65px; }
+	.small-size { font-size: 26px; }
+	.hero-info .title-text { line-height: 60px; }
+	.hero-info p { font-size: 26px; margin: 18px 0px; }
+	.plans-info h2 { font-size: 50px; }
+	.plans-info h5 { font-size: 20px; }
+	.plans-info h6 { font-size: 16px; }
+	.plans-info ul li { font-size: 16px; }
+	.plans-button .button { padding: 6px 0px; font-size: 18px; height: 44px; }
+	.plans-top-info h5 { font-size: 22px; }
+	.plans-more-info h3 { font-size: 25px; margin-bottom: 10px; }
+	.pop-tv-info h6 { font-size: 18px; margin: 10px 0px; }
+	.pop-tv-info h5 { font-size: 25px; margin: 0px 0px 10PX; }
+	.live-chat-box .button { font-size: 24px; padding: 32px 8px; }
+	.number-col h1 { font-size: 115px; }
+	.plans-tab-menu ul li { margin: 0px 10px; }
+	.plans-tab-menu ul li a { font-size: 15px; }
+	.plans-tab-list ul li a { font-size: 14px; padding: 5px 20px; }
+	.plans-tab-list ul li { margin: 0px 5px; }
+	.plans-tab-info h3 { font-size: 25px; }
+	.banner-info h1 { font-size: 50px; margin-bottom: 10px; }
+	.banner-info h5 { font-size: 20px; line-height: 25px; }
+	.plans-tab-heading h2 { font-size: 30px; }
+	.all-deals-form-fields {padding: 15px;}
+}
+@media screen and (max-width:1200px) {
+	.sub-container { padding: 0%; }
+	.title-text { font-size: 40px; line-height: 39px; }
+	.title-big-text { font-size: 48px; line-height: 52px; }
+	.small-size { font-size: 20px; }
+	.header-menu ul li { display: inline-block; margin: 0px 10px; }
+	.topbar-info h6 { font-size: 15px; }
+	.topbar-info small { font-size: 14px; }
+	.topbar-info { padding-left: 5px; width: calc(100% - 30px); }
+	.topbar-icon { width: 25px; }
+	.number-col h1 { font-size: 80px; }
+	.plans-top-info h5 { font-size: 20px; }
+	.hero-info .title-text { line-height: 50px; }
+}
+@media screen and (max-width:991px) {
+	.title-text { font-size: 30px; }
+	.title-big-text { font-size: 38px; line-height: 40px; }
+	.empty-space { padding: 50px 0px; }
+	.empty-space-top { padding-top: 50px; }
+	.empty-space-bottom { padding-bottom: 50px; }
+	.hero-info .title-text { line-height: 35px; }
+	.topbar { display: none; }
+	.header-menu ul li a { font-size: 14px; }
+	.header-menu ul li { margin: 0px 5px; }
+	.hero-info p { font-size: 18px; margin: 12px 0px; }
+	.plans-info h2 { font-size: 35px; }
+	.plans-info ul li { font-size: 14px; }
+	.plans-info h5 { font-size: 18px; }
+	.find-connection form { display: block; max-width: 570px; margin: 0px auto; }
+	.find-connection h2 { font-size: 34px; margin-bottom: 10px; }
+	.find-connection h5 { font-size: 22px; margin-bottom: 10px; }
+	.pop-tv-info { padding-left: 0%; }
+	.number-col h1 { font-size: 55px; }
+	.swich-img-box img { height: 46px; }
+	.footer-box ul li a { font-size: 12px; line-height: 24px; }
+	.large-size { font-size: 22px; }
+	.plans-tab-info { min-width: 1000px; width: 100%; }
+	.plans-tab-content { overflow: scroll; }
+	.left-border:after { height: 124%; left: -15px; top: -24px; }
+	.id-more-info h3 { margin-right: 15px; margin-bottom: 15px; border-radius: 0px; }
+	.plans-tab-menu ul li { margin: 5px; }
+
+}
+@media screen and (max-width:767px) {
+	.empty-space { padding: 30px 0px; }
+	.empty-space-top { padding-top: 30px; }
+	.empty-space-bottom { padding-bottom: 30px; }
+	.title-big-text { font-size: 30px; line-height: 35px; }
+	.row-height { display: block; }
+	.col-height { display: block; }
+	.col-5 { width: 100%; float: none; padding: 0px 15px; }
+	.header-box .row { display: flex; align-items: center; }
+	.topbar { display: none; }
+
+	/********************************** Start Of Mobile Toggle Menu Css **********************************/
+	.toggle-button { text-align: right; }
+	.toggle { border: none; background: none; padding: 0px; }
+	.toggle span { display: block; width: 30px; height: 2px; background: #ed1b60; margin: 5px 0px; -webkit-transition: all .2s ease-in-out; }
+	.toggle-open .toggle span:nth-child(1) { transform: translateY(9px) translateX(0) rotate(45deg); -webkit-transform: translateY(9px) translateX(0) rotate(45deg); -moz-transform: translateY(9px) translateX(0) rotate(45deg); -webkit-transition: all .2s ease-in-out; }
+	.toggle-open .toggle span:nth-child(2) { opacity: 0; -webkit-transition: all .2s ease-in-out; }
+	.toggle-open .toggle span:nth-child(3) { transform: translateY(-5px) translateX(0) rotate(-43deg); -webkit-transform: translateY(-5px) translateX(0) rotate(-43deg); -moz-transform: translateY(-5px) translateX(0) rotate(-43deg); -webkit-transition: all .2s ease-in-out; }
+	.toggle-menu { display: block; position: fixed; left: -100%; top: 0; bottom: 0; width: 80%; height: 100vh; background: #11304e; transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; padding: 25px; z-index: 999; }
+	.toggle-open .toggle-menu { left: 0; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; }
+	.header-menu ul li { display: block; width: 100%; opacity: 0; transform: scale(1.15) translateY(-30px); transition: transform .5s cubic-bezier(.4, .01, .165, .99) 0s, opacity .6s cubic-bezier(.4, .01, .165, .99) 0s, -webkit-transform .5s cubic-bezier(.4, .01, .165, .99); padding: 14px 0px 10px 0px; margin: 0px; border-top: 1px solid #2a4661; border-bottom: 1px solid #07131f; }
+	.header-menu ul li:first-child { border-top: none; }
+	.header-menu ul li:last-child { border-bottom: none; }
+	.toggle-open .header-menu ul li { opacity: 1; transform: scale(1) translateY(0px); -webkit-transform: scale(1) translateY(0px); }
+	.toggle-open .header-menu ul li:nth-child(1) { transition-delay: 0s; }
+	.toggle-open .header-menu ul li:nth-child(2) { transition-delay: 0.1s; }
+	.toggle-open .header-menu ul li:nth-child(3) { transition-delay: 0.2s; }
+	.toggle-open .header-menu ul li:nth-child(4) { transition-delay: 0.3s; }
+	.toggle-open .header-menu ul li:nth-child(5) { transition-delay: 0.4s; }
+	.toggle-open .header-menu ul li:nth-child(6) { transition-delay: 0.5s; }
+	.toggle-open .header-menu ul li:nth-child(7) { transition-delay: 0.6s; }
+
+	/********************************** End Of Mobile Toggle Menu Css **********************************/
+	.header-menu ul li a { color: #ffff; }
+	.header-menu { display: block; vertical-align: middle; width: 100%; }
+	.search-box { position: relative; display: block; }
+	.search-box input { padding: 10px; border-radius: 60px; width: 100%; }
+	.search-box button { font-size: 20px; position: absolute; right: 0px; top: 0px; }
+	.header-right { display: block; text-align: left; }
+	.action-box { display: block; margin-top: 10px; }
+	.action-box ul li { margin: 0px 10px 0px 0px; }
+	.action-box ul li a i { font-size: 23px; }
+	.button { padding: 8px 30px; }
+	.title-text { font-size: 26px; }
+	.hero-info { right: 0px; left: 0px; width: 100%; padding: 0px 15px; }
+	.category-box { text-align: center; padding: 10px 0px; }
+	.hero-info .title-text { line-height: 26px; font-size: 20px; }
+	.live-chat-box .button { font-size: 16px; padding: 22px 5px; }
+	.button img { width: 22px; }
+	.hero-image img { height: 60vh; object-fit: cover; }
+	.hero-info p { font-size: 14px; margin: 6px 0px; }
+	.best-deals-info { padding: 20px; }
+	.reviews-box { width: 100%; }
+	.plans-slider .slick-prev { left: 0px; }
+	.plans-slider .slick-next { right: 0px; }
+	.plans-slider .slick-list { padding-right: 20px; padding-left: 20px; }
+	.slick-prev:before, .slick-next:before { font-size: 20px; line-height: 25px; width: 25px; height: 25px; }
+	.find-connection h2 { font-size: 23px; }
+	.find-connection h2 img { width: 20px; }
+	.find-connection h5 { font-size: 16px; }
+	.find-connection form input { margin: 5px 15px; }
+	.pop-tv-image img { margin-bottom: 20px; }
+	.turbo-charge-pop-tv-info { padding-left: 25px; margin-bottom: 20px; }
+	.number-box { margin-bottom: 20px; }
+	.social-media-box { text-align: left; }
+	.footer-box ul li a { font-size: 14px; line-height: 30px; }
+	.social-media-box ul { margin-top: 10px; }
+	.social-media-box ul li a { font-size: 21px; }
+	.footer-box { border-bottom: 1px solid #2b4661; padding-bottom: 15px; }
+	.footer-logo { padding-top: 15px; }
+	.mobile-action-box ul li { display: inline-block; margin: 0px 8px; }
+	.logo img { max-width: 50px; }
+	.mobile-action-box { text-align: center; }
+	.plans-tab-menu ul li a { font-size: 12px; padding: 5px 10px; }
+	.plans-tab-list ul li a { font-size: 10px; padding: 5px 10px; }
+	.plans-tab-list ul li { margin: 5px; }
+	.banner-info { width: 90%; }
+	.banner-info h1 { font-size: 30px; }
+	.banner-info h5 { font-size: 15px; }
+	.banner-image img { height: 26vh; }
+	
+}
