@@ -43,7 +43,7 @@ class CategoryServiceProvider extends ServiceProvider
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         View::composer(
-            ['user::create', 'user::edit'], 'Modules\Category\Http\View\CategoryComposer'
+            '*', 'Modules\Category\Http\View\CategoryComposer'
         );
     }
 

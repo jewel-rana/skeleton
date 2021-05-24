@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="product-details-image">
-                            <img src="./images/product-dproduct-imgae.png" alt="" title="">
+                            <img src="./assets/images/product-dproduct-imgae.png" alt="" title="">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -58,14 +58,14 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="other-options-box">
-                            <img src="./images/other-options-image-01.png" alt="" title="">
+                            <img src="./assets/images/other-options-image-01.png" alt="" title="">
                             <h3>Superfast WiFi Router</h3>
                             <h3>£79.99</h3>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="other-options-box">
-                            <img src="./images/other-options-image-02.png" alt="" title="">
+                            <img src="./assets/images/other-options-image-02.png" alt="" title="">
                             <h3>Fritz Ultra Extreme Flagship Router</h3>
                             <h3>£124.00</h3>
                         </div>
@@ -82,7 +82,7 @@
             <div class="row Switching-row">
                 <div class="col-sm-12">
                     <div class="swich-img-box">
-                        <img src="./images/swich.png">
+                        <img src="./assets/images/swich.png">
                     </div>
                 </div>
                 <div class="col-sm-3 wow fadeInLeft">
@@ -98,7 +98,7 @@
                             <h1 class="title-big-text pink-color">1</h1>
                         </div>
                         <div class="number-icon-box">
-                            <img src="./images/number-icon-01.png">
+                            <img src="./assets/images/number-icon-01.png">
                             <p class="blue-color">Find the deal that suits you. Browsing? Streaming? Gaming? Everything</p>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                             <h1 class="title-big-text pink-color">2</h1>
                         </div>
                         <div class="number-icon-box">
-                            <img src="./images/number-icon-02.png">
+                            <img src="./assets/images/number-icon-02.png">
                             <p class="blue-color">Sit back relax and let us change you over to POP telecom without having to lift a finger. We will tell BT, PlusNet, Vodafone, or Plusnet that you are moving to us and we will take care of the switch every step of the way</p>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                             <h1 class="title-big-text pink-color">3</h1>
                         </div>
                         <div class="number-icon-box">
-                            <img src="./images/number-icon-03.png">
+                            <img src="./assets/images/number-icon-03.png">
                             <p class="blue-color">Plug in the router on the day of transfer and enjoy great broadband at a great price.</p>
                         </div>
                     </div>
