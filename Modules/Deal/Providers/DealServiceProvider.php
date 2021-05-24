@@ -4,6 +4,8 @@ namespace Modules\Deal\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Deal\Repository\DealRepository;
+use Modules\Deal\Repository\DealRepositoryInterface;
 
 class DealServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,7 @@ class DealServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(DealRepositoryInterface::class, DealRepository::class);
     }
 
     /**

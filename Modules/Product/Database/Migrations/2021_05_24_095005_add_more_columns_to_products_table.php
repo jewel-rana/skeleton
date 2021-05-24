@@ -19,8 +19,10 @@ class AddMoreColumnsToProductsTable extends Migration
             $table->double('upfront_price', [10,2])->default(0);
             $table->double('install_price', [10,2])->default(0);
             $table->enum('price_type', ['onetime', 'monthly', 'yearly'])->default('onetime');
-            $table->tinyInteger('status')->default(1);
             $table->string('thumbnail')->nullable();
+            $table->tinyInteger('status')->default(1);
+            $table->string('meta_keyword')->nullable();
+            $table->text('meta_description')->nullable();
         });
     }
 

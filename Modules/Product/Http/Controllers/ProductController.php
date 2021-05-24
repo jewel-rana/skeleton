@@ -3,6 +3,7 @@
 namespace Modules\Product\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -121,5 +122,10 @@ class ProductController extends Controller
 
         $product->delete();
         return redirect()->back();
+    }
+
+    public function suggest(): JsonResponse
+    {
+        return $this->products->suggest();
     }
 }

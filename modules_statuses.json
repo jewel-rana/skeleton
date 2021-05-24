@@ -8,5 +8,7 @@
     "Role": true,
     "Permission": true,
     "Deal": true,
-    "Slider": true
+    "Slider": true,
+    "Brand": true,
+    "Media": true
 }

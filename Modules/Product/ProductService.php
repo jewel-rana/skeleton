@@ -4,6 +4,8 @@
 namespace Modules\Product;
 
 
+use Illuminate\Http\JsonResponse;
+use Modules\Product\Entities\Product;
 use Modules\Product\Repository\ProductRepositoryInterface;
 
 class ProductService
@@ -26,5 +28,24 @@ class ProductService
     public function update(array $data, $id)
     {
         return $this->repository->update($data, $id);
+    }
+
+    public function suggest(): JsonResponse
+    {
+        $query = Product::select('title', 'id');
+        if (isset($_GET['term'])) {
+            $term = request()->get('term');
+            $query->where('title', 'LIKE', '%' . $term . '%');
+        }
+        $query = $query->paginate(15);
+        $results = [];
+        if ($query) {
+            foreach ($query as $q) {
+                $row['id'] = $q->id;
+                $row['name'] = $q->title;
+                array_push($results, $row);
+            }
+        }
+        return response()->json(['results' => $results]);
     }
 }

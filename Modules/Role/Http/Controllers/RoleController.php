@@ -104,7 +104,7 @@ class RoleController extends Controller
             return redirect()->back();
         }
 
-        return redirect()->route('user.index');
+        return redirect()->route('role.index');
     }
 
     /**
@@ -112,7 +112,7 @@ class RoleController extends Controller
      * @param Role $role
      * @return RedirectResponse
      */
-    public function destroy(Role $role)
+    public function destroy(Role $role): RedirectResponse
     {
         $role->delete();
         return  redirect()->back();

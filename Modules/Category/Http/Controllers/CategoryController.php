@@ -59,7 +59,6 @@ class CategoryController extends Controller
         try {
             $this->categories->create($request->validated());
         } catch (\Throwable $exception) {
-            dd($exception);
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
         }

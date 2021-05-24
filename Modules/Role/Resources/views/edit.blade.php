@@ -8,6 +8,7 @@
                     <div class="card-body">
                         <form class="form form-vertical" action="{{ route('role.update', $role->id) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
