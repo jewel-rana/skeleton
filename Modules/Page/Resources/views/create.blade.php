@@ -65,7 +65,7 @@
                                     <option value="">{{ __('Select Template') }}</option>
 
                                     @foreach($templates as $template)
-                                        <option value="" @if(old('template') == $template) selected @endif>{{$template}}</option>
+                                        <option value="{{$template}}" @if(old('template') == $template) selected @endif>{{$template}}</option>
                                     @endforeach
 
 

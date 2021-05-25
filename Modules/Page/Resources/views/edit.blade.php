@@ -63,7 +63,7 @@
                                     <option value="">{{ __('Select Template') }}</option>
 
                                     @foreach($templates as $template)
-                                        <option value="" @if(old('template', $page->template) == $template) selected @endif>{{$template}}</option>
+                                        <option value="{{$template}}" @if(old('template', $page->template) == $template) selected @endif>{{$template}}</option>
                                     @endforeach
 
 
@@ -73,7 +73,7 @@
 
                             <div class="form-group">
                                 <button type="submit"
-                                        class="btn btn-primary form-control mr-1">{{ __('Create Page') }}</button>
+                                        class="btn btn-primary form-control mr-1">{{ __('Update Page') }}</button>
                             </div>
                         </div>
                     </div>
