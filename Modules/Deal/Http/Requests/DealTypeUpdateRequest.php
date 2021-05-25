@@ -4,7 +4,7 @@ namespace Modules\Deal\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DealCreateRequest extends FormRequest
+class DealTypeUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,11 +14,8 @@ class DealCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|unique:deals,name',
-            'brand_id' => 'bail|nullable|numeric|exists:brands,id',
-            'product_id' => 'bail|required|numeric|exists:products,id',
-            'deal_type_id' => 'bail|required|integer',
-            'attribute' => 'bail|required|array'
+            'name' => 'bail|required|unique:deal_types,name,' . $this->dealType,
+            'description' => 'bail|nullable'
         ];
     }
 

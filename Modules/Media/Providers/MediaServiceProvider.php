@@ -4,6 +4,8 @@ namespace Modules\Media\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
+use Modules\Media\Repository\MediaRepository;
+use Modules\Media\Repository\MediaRepositoryInterface;
 
 class MediaServiceProvider extends ServiceProvider
 {
@@ -39,6 +41,7 @@ class MediaServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(ImageServiceProvider::class);
+        $this->app->bind(MediaRepositoryInterface::class, MediaRepository::class);
     }
 
     /**

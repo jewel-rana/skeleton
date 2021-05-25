@@ -40,7 +40,9 @@ class PageController extends Controller
     }
 
 
+
     public function store(PageCreateRequest $request)
+
     {
         try {
             $this->pages->create($request->validated());

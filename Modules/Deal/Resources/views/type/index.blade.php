@@ -12,14 +12,12 @@
                     <p class="card-text"></p>
                 </div>
                 <div>
-                    <table class="table" id="mediaTable">
+                    <table class="table" id="dealTypeTable">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Type</th>
-                            <th>Size</th>
-                            <th>Dimension</th>
+                            <th>Description</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -52,18 +50,16 @@
     <!-- END: Page Vendor JS-->
     <script>
         jQuery(function ($) {
-            let table = $('#mediaTable').DataTable({
+            let table = $('#dealTypeTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route('media.index') }}'
+                    url: '{{ route('deal-type.index') }}'
                 },
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'attachment', name: 'attachment'},
-                    {data: 'type', name: 'type'},
-                    {data: 'size', name: 'size'},
-                    {data: 'dimension', name: 'dimension'},
+                    {data: 'name', name: 'name'},
+                    {data: 'description', name: 'description'},
                     {data: 'action', name: 'action', searchable: false, orderable: false}
                 ]
             });

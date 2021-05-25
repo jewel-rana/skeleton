@@ -2,6 +2,7 @@
 
 namespace Modules\Deal\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Modules\Deal\Repository\DealRepository;
@@ -41,6 +42,9 @@ class DealServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(DealRepositoryInterface::class, DealRepository::class);
+        View::composer(
+            '*', 'Modules\Deal\Http\View\DealTypeComposer'
+        );
     }
 
     /**

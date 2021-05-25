@@ -31,11 +31,6 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('page.index') }}">
-                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Pages</span>
-                </a>
-            </li>
-            <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('slider.index') }}">
                     <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Slider</span>
                 </a>
@@ -43,6 +38,16 @@
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('deal.index') }}">
                     <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Deals</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('media.index') }}">
+                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Media</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('menu.index') }}">
+                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Menus</span>
                 </a>
             </li>
             <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Administration</span><i

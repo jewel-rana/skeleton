@@ -28,12 +28,22 @@ class DealController extends Controller
     public function index( Request $request)
     {
         if($request->wantsJson()) {
-            $deals = Deal::with(['brand', 'product'])->select(['id', 'name', 'type']);
+            $deals = Deal::with(['brand', 'product', 'dealType'])->select(['id', 'name', 'product_id', 'brand_id', 'deal_type_id']);
 
             return Datatables::of($deals)
                 ->addColumn('action', function($deal) {
                     return "<a href='" . route('deal.edit', $deal->id) . "' class='btn btn-outline-secondary'>Edit</a>";
                 })
+                ->editColumn('product', function($deal) {
+                    return $deal->product->title;
+                })
+                ->editColumn('brand', function($deal) {
+                    return $deal->brand->name;
+                })
+                ->editColumn('deal_type', function($deal) {
+                    return $deal->dealType->name;
+                })
+                ->removeColumn(['product_id', 'brand_id', 'deal_type_id'])
                 ->make(true);
         }
         return view('deal::index')->withTitle('Deals');
@@ -58,6 +68,7 @@ class DealController extends Controller
         try {
             $this->deals->create($request->validated());
         } catch (\Throwable $exception) {
+            dd($exception);
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
         }
