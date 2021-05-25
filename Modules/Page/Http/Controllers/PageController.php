@@ -3,7 +3,6 @@
 namespace Modules\Page\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Page\Http\Requests\PageCreateRequest;
@@ -12,6 +11,7 @@ use Modules\Page\PageService;
 class PageController extends Controller
 {
     const templates =  ["Default", "About Us"];
+
 
     private $pages;
 
@@ -26,7 +26,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('page::index')->withTitle('Pages');
+        return view('page::index');
     }
 
     /**
@@ -35,16 +35,14 @@ class PageController extends Controller
      */
     public function create()
     {
-       $templates = PageController::templates;
+        $templates = PageController::templates;
         return view('page::create', compact('templates'))->withTitle('Add new page');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param PageCreateRequest $request
-     * @return RedirectResponse
-     */
-    public function store(PageCreateRequest $request): RedirectResponse
+
+
+    public function store(PageCreateRequest $request)
+
     {
         try {
             $this->pages->create($request->validated());
@@ -63,7 +61,7 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        return view('page::show')->withTitle('Show page');
+        return view('page::show');
     }
 
     /**
@@ -73,7 +71,7 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        return view('page::edit')->withTitle('Update page');
+        return view('page::edit');
     }
 
     /**

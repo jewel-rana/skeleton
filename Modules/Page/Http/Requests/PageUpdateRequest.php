@@ -13,7 +13,7 @@ class PageUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+       /* return [
             'title' => 'bail|required|unique:products,title,' . $this->product,
             'slug' => 'bail|nullable|unique:products,slug,' . $this->product,
             'description' => 'bail|required',
@@ -25,7 +25,7 @@ class PageUpdateRequest extends FormRequest
             'price_type' => 'bail|required|in:onetime,monthly,yearly',
             'status' => 'bail|required|in:0,1',
             'attachment' => 'bail|mimes:jpg,jpeg,png,gif'
-        ];
+        ];*/
     }
 
     /**
