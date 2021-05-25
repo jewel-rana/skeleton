@@ -9,3 +9,10 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.table-img {
+    width: 50px;
+    height: auto;
+    max-height: 60px;
+    border: 1px solid #EEE;
+    padding: 5px;
+}
