@@ -10,5 +10,6 @@
     "Deal": true,
     "Slider": true,
     "Brand": true,
-    "Media": true
+    "Media": true,
+    "Menu": true
 }
