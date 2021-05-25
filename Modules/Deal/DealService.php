@@ -4,6 +4,7 @@
 namespace Modules\Deal;
 
 
+use Modules\Deal\Entities\DealType;
 use Modules\Deal\Repository\DealRepositoryInterface;
 
 class DealService
@@ -26,5 +27,10 @@ class DealService
     public function update(array $data, int $id)
     {
         return $this->repository->update($data, $id);
+    }
+
+    public function getDealTypeDropdown()
+    {
+        return DealType::pluck('name', 'id');
     }
 }

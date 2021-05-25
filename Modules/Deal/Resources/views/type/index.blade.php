@@ -12,7 +12,7 @@
                     <p class="card-text"></p>
                 </div>
                 <div>
-                    <table class="table" id="categoryTable">
+                    <table class="table" id="dealTypeTable">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -50,11 +50,11 @@
     <!-- END: Page Vendor JS-->
     <script>
         jQuery(function ($) {
-            let table = $('#categoryTable').DataTable({
+            let table = $('#dealTypeTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route('category.index') }}'
+                    url: '{{ route('deal-type.index') }}'
                 },
                 columns: [
                     {data: 'id', name: 'id'},

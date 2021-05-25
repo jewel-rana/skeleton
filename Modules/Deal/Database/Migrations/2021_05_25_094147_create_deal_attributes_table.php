@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDealsTable extends Migration
+class CreateDealAttributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateDealsTable extends Migration
      */
     public function up()
     {
-        Schema::create('deals', function (Blueprint $table) {
+        Schema::create('deal_attributes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('brand_id');
-            $table->bigInteger('product_id');
-            $table->bigInteger('user_id');
-            $table->string('name')->unique();
-            $table->integer('deal_type_id')->default(1);
+
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateDealsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deals');
+        Schema::dropIfExists('deal_attributes');
     }
 }

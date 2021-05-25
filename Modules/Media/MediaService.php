@@ -6,24 +6,20 @@ namespace Modules\Media;
 
 use Intervention\Image\Facades\Image;
 use Modules\Brand\Entities\Brand;
+use Modules\Media\Repository\MediaRepositoryInterface;
 
 class MediaService
 {
-    /**
-     * @var Brand
-     */
-    private $property;
-    /**
-     * @var mixed|string
-     */
     private $dir;
+    private $property;
+    private $repository;
 
-    public function __construct()
+    public function __construct(MediaRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
 
-    public function upload(Brand $brand, ?array $files, $dir = 'uploads/files')
+    public function upload(Brand $brand, $files, $dir = 'uploads/files')
     {
         $this->property = $brand;
         $this->dir = $dir;
@@ -43,9 +39,9 @@ class MediaService
             $file->move(public_path($this->dir), $imageName);
             $media = $this->repository->create([
                 'attachment' => $this->dir . '/' . $imageName,
-                'type' => $file->getSize(),
-                'extension' => $file->extension(),
-                'dimension' => Image::make($file)->height() . ' X ' . Image::make($file)->width()
+                'extension' => 'jpg',
+                'dimension' => '',
+                'user_id' => auth()->user()->id
             ]);
 
             $this->property->medias()->attach($media->id);

@@ -3,77 +3,128 @@
 namespace Modules\Brand\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Brand\BrandService;
+use Modules\Brand\Entities\Brand;
+use Modules\Brand\Http\Requests\BrandCreateRequest;
+use Modules\Brand\Http\Requests\BrandUpdateRequest;
+use Modules\Category\CategoryService;
+use Modules\Category\Entities\Category;
+use Modules\Category\Http\Requests\CategoryCreateRequest;
+use Modules\Category\Http\Requests\CategoryUpdateRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class BrandController extends Controller
 {
+    private $brands;
+
+    public function __construct(BrandService $brands)
+    {
+        $this->brands = $brands;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index( Request $request)
     {
-        return view('brand::index');
+        if($request->wantsJson()) {
+            $brands = Brand::with(['medias'])->select(['id', 'name', 'description']);
+
+            return Datatables::of($brands)
+                ->addColumn('action', function($brand) {
+                    return "<a href='" . route('brand.edit', $brand->id) . "' class='btn btn-outline-secondary'>Edit</a>";
+                })
+                ->addColumn('logo', function ($brand) {
+                    $logo = ($brand->medias->count()) ? $brand->medias->first()->attachment : 'default/brand.jpg';
+                    return "<img src='" . asset($logo) . "' title='" . $brand->name . "' />";
+                })
+                ->removeColumn('medias')
+                ->make(true);
+        }
+        return view('brand::index')->withTitle('Brands');
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function create()
+    public function create(): Renderable
     {
-        return view('brand::create');
+        return view('brand::create')->withTitle('Add new brand');
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param BrandCreateRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(BrandCreateRequest $request): RedirectResponse
     {
-        //
+        try {
+            $this->brands->create($request->validated());
+        } catch (\Throwable $exception) {
+            dd($exception);
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('brand.index');
     }
 
     /**
      * Show the specified resource.
-     * @param int $id
+     * @param Brand $brand
      * @return Renderable
      */
-    public function show($id)
+    public function show(Brand $brand): Renderable
     {
-        return view('brand::show');
+        return view('brand::show', compact('brand'))->withTitle('Show brand');
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     * @param Brand $brand
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Brand $brand): Renderable
     {
-        return view('brand::edit');
+        return view('brand::edit', compact('brand'))->withTitle('Update brand');
     }
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param BrandUpdateRequest $request
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(BrandUpdateRequest $request, $id): RedirectResponse
     {
-        //
+        try {
+            $this->brands->update($request->validated(), $id);
+        } catch (\Throwable $exception) {
+            dd($exception);
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('brand.index');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
+     * @param Brand $brand
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Brand $brand): RedirectResponse
     {
-        //
+        if(!auth()->user()->can('brand-delete'))
+            session()->flash('error', 'You have no right to delete brand');
+
+        $brand->delete();
+        return redirect()->back();
     }
 }
