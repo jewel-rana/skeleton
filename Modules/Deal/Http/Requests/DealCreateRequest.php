@@ -15,9 +15,10 @@ class DealCreateRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|unique:deals,name',
-            'brand_id' => 'bail|required|numeric|exists:brands,id',
+            'brand_id' => 'bail|nullable|numeric|exists:brands,id',
             'product_id' => 'bail|required|numeric|exists:products,id',
-            'type' => 'bail|required|integer'
+            'deal_type_id' => 'bail|required|integer',
+            'attribute' => 'bail|required|array'
         ];
     }
 

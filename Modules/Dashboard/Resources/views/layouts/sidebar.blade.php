@@ -31,11 +31,6 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('page.index') }}">
-                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Pages</span>
-                </a>
-            </li>
-            <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('slider.index') }}">
                     <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Slider</span>
                 </a>

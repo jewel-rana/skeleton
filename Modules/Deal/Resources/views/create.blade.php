@@ -33,40 +33,82 @@
                         </div>
                         <div class="card-body">
                             <div class="invoice-repeater">
-                                <div data-repeater-list="invoice">
-                                    <div data-repeater-item>
-                                        <div class="row d-flex align-items-end">
-                                            <div class="col-md-4 col-12">
-                                                <div class="form-group">
-                                                    <label for="itemname">Label</label>
-                                                    <input type="text" class="form-control" name="attribute[label][]" id="itemname" aria-describedby="itemname" placeholder="Label" />
-                                                </div>
-                                            </div>
+                                <div data-repeater-list="attribute">
+                                    @if(old('attribute'))
+                                        @foreach(old('attribute') as $attribute)
+                                            <div data-repeater-item>
+                                                <div class="row d-flex align-items-end">
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-group">
+                                                            <label for="itemname">Label</label>
+                                                            <input type="text" class="form-control" name="label"
+                                                                   id="itemname" value="{{ $attribute['label'] }}" aria-describedby="itemname"
+                                                                   placeholder="Label"/>
+                                                        </div>
+                                                    </div>
 
-                                            <div class="col-md-4 col-12">
-                                                <div class="form-group">
-                                                    <label for="itemvalue">Value</label>
-                                                    <input type="text" class="form-control" name="attribute[value][]" id="itemvalue" aria-describedby="itemvalue" placeholder="Value" />
-                                                </div>
-                                            </div>
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-group">
+                                                            <label for="itemvalue">Value</label>
+                                                            <input type="text" class="form-control" name="value"
+                                                                   id="itemvalue" value="{{ $attribute['value'] }}" aria-describedby="itemvalue"
+                                                                   placeholder="Value"/>
+                                                        </div>
+                                                    </div>
 
-                                            <div class="col-md-2 col-12 mb-50">
-                                                <div class="form-group">
-                                                    <button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete type="button">
-                                                        <i data-feather="x" class="mr-25"></i>
-                                                        <span>Delete</span>
-                                                    </button>
+                                                    <div class="col-md-2 col-12 mb-50">
+                                                        <div class="form-group">
+                                                            <button class="btn btn-outline-danger text-nowrap px-1"
+                                                                    data-repeater-delete type="button">
+                                                                <i data-feather="x" class="mr-25"></i>
+                                                                <span>Delete</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div data-repeater-item>
+                                            <div class="row d-flex align-items-end">
+                                                <div class="col-md-4 col-12">
+                                                    <div class="form-group">
+                                                        <label for="itemname">Label</label>
+                                                        <input type="text" class="form-control" name="label"
+                                                               id="itemname" aria-describedby="itemname"
+                                                               placeholder="Label"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-12">
+                                                    <div class="form-group">
+                                                        <label for="itemvalue">Value</label>
+                                                        <input type="text" class="form-control" name="value"
+                                                               id="itemvalue" aria-describedby="itemvalue"
+                                                               placeholder="Value"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 col-12 mb-50">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-outline-danger text-nowrap px-1"
+                                                                data-repeater-delete type="button">
+                                                            <i data-feather="x" class="mr-25"></i>
+                                                            <span>Delete</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <hr/>
                                         </div>
-                                        <hr />
-                                    </div>
+                                    @endif
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <button class="btn btn-icon btn-primary" type="button" data-repeater-create>
                                             <i data-feather="plus" class="mr-25"></i>
-                                            <span>Add New</span>
+                                            <span>{{ __('Add New') }}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -79,21 +121,22 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="product_id">Select product</label>
-                                <select class="form-control select2-blue" id="product_id" name="product_id" placeholder="Select product"></select>
+                                <select class="form-control form-control-lg" id="product_id" name="product_id"></select>
                             </div>
 
                             <div class="form-group">
-                                <label for="product_id">Select type</label>
-                                <select class="form-control" id="product_id" name="product_id" required>
+                                <label for="deal_type_id">Select type</label>
+                                <select class="form-control" id="deal_type_id" name="deal_type_id" required>
                                     <option value="">Select deal type</option>
                                     @foreach($deal_type_lists as $key => $value)
-                                    <option value="{{ $key }}" @if(old('deal_type_id') == $key) selected @endif>{{ $value }}</option>
+                                        <option value="{{ $key }}"
+                                                @if(old('deal_type_id') == $key) selected @endif>{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-primary mr-1">Create</button>
+                                <button type="submit" class="btn btn-block btn-primary mr-1">{{ __('Create') }}</button>
                             </div>
                         </div>
                     </div>
@@ -103,7 +146,42 @@
     </section>
 @endsection
 
+@section('header')
+@endsection
 @section('footer')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('assets/admin/js/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/scripts/forms/form-repeater.js') }}"></script>
+    <script>
+        jQuery(function ($) {
+            $('#product_id').select2({
+                placeholder: "Select product",
+                allowClear: true,
+                cache: false,
+                ajax: {
+                    url: "{{ route('product.suggest') }}",
+                    dataType: 'json',
+                    type: "GET",
+                    quietMillis: 50,
+                    data: function (term) {
+                        return {
+                            term: term.term
+                        };
+                    },
+                    processResults: function (data) {
+                        var myResults = [];
+                        $.each(data.results, function (index, item) {
+                            myResults.push({
+                                'id': item.id,
+                                'text': item.name
+                            });
+                        });
+                        return {
+                            results: myResults
+                        };
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

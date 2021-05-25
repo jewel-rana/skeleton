@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Page\Http\Requests\PageCreateRequest;
 use Modules\Page\PageService;
-use Modules\Product\Http\Requests\ProductCreateRequest;
-use Modules\Product\ProductService;
 
 class PageController extends Controller
 {
@@ -43,8 +41,8 @@ class PageController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param PageCreateRequest $request
+     * @return RedirectResponse
      */
     public function store(PageCreateRequest $request): RedirectResponse
     {

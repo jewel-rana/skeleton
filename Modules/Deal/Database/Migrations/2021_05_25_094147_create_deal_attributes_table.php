@@ -15,8 +15,9 @@ class CreateDealAttributesTable extends Migration
     {
         Schema::create('deal_attributes', function (Blueprint $table) {
             $table->id();
-
-            $table->timestamps();
+            $table->bigInteger('deal_id');
+            $table->string('label');
+            $table->string('value');
         });
     }
 
