@@ -17,6 +17,7 @@ class PageCreateRequest extends FormRequest
             'title' => 'bail|required|unique:pages,title',
             'description' => 'bail|required',
             'status' => 'bail|required|in:0,1',
+            'template' => 'required',
 
         ];
     }
