@@ -3,11 +3,25 @@
 namespace Modules\Page\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Page\Http\Requests\PageCreateRequest;
+use Modules\Page\PageService;
+use Modules\Product\Http\Requests\ProductCreateRequest;
+use Modules\Product\ProductService;
 
 class PageController extends Controller
 {
+    const templates =  ["Default", "About Us"];
+
+    private $pages;
+
+    public function __construct(PageService $pages)
+    {
+        $this->pages = $pages;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -23,7 +37,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('page::create')->withTitle('Add new page');
+       $templates = PageController::templates;
+        return view('page::create', compact('templates'))->withTitle('Add new page');
     }
 
     /**
@@ -31,9 +46,16 @@ class PageController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(PageCreateRequest $request): RedirectResponse
     {
-        //
+        try {
+            $this->pages->create($request->validated());
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('page.index');
     }
 
     /**
