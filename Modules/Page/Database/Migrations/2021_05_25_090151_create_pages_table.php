@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->bigInteger('user_id');
             $table->string('title')->unique();
             $table->text('description');
+            $table->text('template');
             $table->tinyInteger('status')->default(1);
             $table->softDeletes();
             $table->timestamps();

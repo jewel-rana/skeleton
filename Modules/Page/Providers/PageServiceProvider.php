@@ -6,8 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Modules\Page\Repository\PageRepository;
 use Modules\Page\Repository\PageRepositoryInterface;
-use Modules\Product\Providers\RouteServiceProvider;
-use Modules\Product\Repository\ProductRepository;
 
 class PageServiceProvider extends ServiceProvider
 {

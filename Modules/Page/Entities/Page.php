@@ -13,7 +13,7 @@ class Page extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $guarded = [];
+    protected $fillable  = ['title', 'description', 'status', 'user_id', 'template'];
 
 /*    public function category(): BelongsTo
     {

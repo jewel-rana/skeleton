@@ -40,7 +40,7 @@ class ProductServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-        $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+       $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
     }
 
     /**
