@@ -36,9 +36,21 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('deal.index') }}">
-                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Deals</span>
+                <a class="d-flex align-items-center" href="#">
+                    <i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Deals</span>
                 </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('deal.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">All deals</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('deal-type.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Deal types</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('media.index') }}">
