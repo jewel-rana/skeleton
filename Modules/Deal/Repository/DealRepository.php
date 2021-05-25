@@ -5,6 +5,7 @@ namespace Modules\Deal\Repository;
 
 
 use App\Repository\BaseRepository;
+use Illuminate\Support\Collection;
 use Modules\Deal\Entities\Deal;
 
 class DealRepository extends BaseRepository implements DealRepositoryInterface
@@ -32,5 +33,10 @@ class DealRepository extends BaseRepository implements DealRepositoryInterface
     public function delete($id)
     {
         return parent::delete($id);
+    }
+
+    public function getAllDeals() : Collection
+    {
+        return $this->model->with(['brand.medias', 'product', 'attributes'])->get();
     }
 }

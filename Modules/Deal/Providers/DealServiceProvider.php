@@ -45,6 +45,9 @@ class DealServiceProvider extends ServiceProvider
         View::composer(
             '*', 'Modules\Deal\Http\View\DealTypeComposer'
         );
+        View::composer(
+            '*', 'Modules\Deal\Http\View\DealComposer'
+        );
     }
 
     /**
