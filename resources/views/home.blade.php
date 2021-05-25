@@ -7,7 +7,8 @@
                 <img src="./assets/images/Hero-Image.png" alt="" title="">
             </div>
             <div class="hero-info wow fadeInRight">
-                <h1 class="title-text white-color">Defining digital connections. Flexible, cheap and reliable TV, mobile and Internet.</h1>
+                <h1 class="title-text white-color">Defining digital connections. Flexible, cheap and reliable TV, mobile
+                    and Internet.</h1>
                 <p>A network provider with resources you can rely on.</p>
                 <a href="#" class="button pink-bg">VIEW DEALS</a>
             </div>
@@ -61,177 +62,57 @@
                 <div class="col-md-4 col-sm-6 wow fadeInLeft">
                     <div class="best-deals-info">
                         <h1 class="title-text">Enjoy our best deals</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially
+                            unchanged. </p>
                         <a href="#" class="button pink-bg">See Internet deals</a>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-6 wow fadeInRight">
                     <div class="plans-slider">
-                        <div class="plans-col">
-                            <div class="plans-box best-deals-plans-box" id="plansmoreinfo01">
-                                <div class="plans-icon">
-                                    <i class="fa fa-wifi" aria-hidden="true"></i>
-                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                        @if(isset($best_deals))
+                            @foreach($best_deals as $deal)
+                                <div class="plans-col">
+                                    <div class="plans-box best-deals-plans-box" id="plansmoreinfo01">
+                                        <div class="plans-icon">
+                                            <i class="fa fa-wifi" aria-hidden="true"></i>
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="plans-info match">
+                                            <h5>{{ $deal['title'] }}</h5>
+                                            <h2>£{{$deal['product_price']}}</h2>
+                                            <h6>11Mb*</h6>
+                                            <h6>Including line rental</h6>
+                                            <hr>
+                                            <ul>
+                                                @foreach($deal['attributes'] as $attribute)
+                                                    <li>{{ $attribute['value'] }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @if($deal['brand_logo'] !== null)
+                                        <div class="plans-icon">
+                                            <figure><img src="{{ asset($deal['brand_logo']) }}" alt="" title=""></figure>
+                                        </div>
+                                        @endif
+                                        <div class="plans-button">
+                                            <a href="#" class="button button-border pink-color">BUY now</a>
+                                            <a href="#plansmoreinfo{{ $deal['id'] }}" data-toggle="collapse"
+                                               class="button button-border blue-color">More info</a>
+                                        </div>
+                                        <div class="plans-more-info" id="plansmoreinfo{{ $deal['id'] }}">
+                                            <h3>Further details</h3>
+                                            {!! $deal['product_description'] !!}
+                                            <a href="#" class="button pink-bg">BUY NOW</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="plans-info match">
-                                    <h5>Lowest priced Broadband + calls</h5>
-                                    <h2>£18.99</h2>
-                                    <h6>11Mb*</h6>
-                                    <h6>Including line rental</h6>
-                                    <hr>
-                                    <ul>
-                                        <li>Free Connection</li>
-                                        <li>Free Anytime Calls</li>
-                                        <li>AC Router</li>
-                                        <li>Best Value</li>
-                                        <li>Broadband 18m Contract</li>
-                                    </ul>
-                                </div>
-                                <div class="plans-button">
-                                    <a href="#" class="button button-border pink-color">BUY now</a>
-                                    <a href="#plansmoreinfo01" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                                </div>
-                                <div class="plans-more-info">
-                                    <h3>Further details</h3>
-                                    <ul>
-                                        <li>£21.99</li>
-                                        <li>per month #</li>
-                                        <li>38Mb*</li>
-                                        <li>Superfast Broadband</li>
-                                        <li>Free Router</li>
-                                        <li>Inclusive Calls</li>
-                                        <li>24m Contract</li>
-                                        <li>*average speed # £21.99 for 3</li>
-                                        <li>months then £24.99 therafter</li>
-                                    </ul>
-                                    <a href="#" class="button pink-bg">BUY NOW</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="plans-col">
-                            <div class="plans-box best-deals-plans-box" id="plansmoreinfo02">
-                                <div class="plans-icon">
-                                    <i class="fa fa-wifi" aria-hidden="true"></i>
-                                    <i class="fa fa-mobile" aria-hidden="true"></i>
-                                </div>
-                                <div class="plans-info match">
-                                    <h5>Lowest priced Broadband + calls</h5>
-                                    <h2>£18.99</h2>
-                                    <h6>11Mb*</h6>
-                                    <h6>Including line rental</h6>
-                                    <hr>
-                                    <ul>
-                                        <li>Free Connection</li>
-                                        <li>Free Anytime Calls</li>
-                                        <li>AC Router</li>
-                                        <li>Best Value</li>
-                                        <li>Broadband 18m Contract</li>
-                                    </ul>
-                                </div>
-                                <div class="plans-button">
-                                    <a href="#" class="button button-border pink-color">BUY now</a>
-                                    <a href="#plansmoreinfo02" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                                </div>
-                                <div class="plans-more-info">
-                                    <h3>Further details</h3>
-                                    <ul>
-                                        <li>£21.99</li>
-                                        <li>per month #</li>
-                                        <li>38Mb*</li>
-                                        <li>Superfast Broadband</li>
-                                        <li>Free Router</li>
-                                        <li>Inclusive Calls</li>
-                                        <li>24m Contract</li>
-                                        <li>*average speed # £21.99 for 3</li>
-                                        <li>months then £24.99 therafter</li>
-                                    </ul>
-                                    <a href="#" class="button pink-bg">BUY NOW</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="plans-col">
-                            <div class="plans-box best-deals-plans-box" id="plansmoreinfo03">
-                                <div class="plans-icon">
-                                    <i class="fa fa-wifi" aria-hidden="true"></i>
-                                    <i class="fa fa-mobile" aria-hidden="true"></i>
-                                </div>
-                                <div class="plans-info match">
-                                    <h5>Lowest priced Broadband + calls</h5>
-                                    <h2>£18.99</h2>
-                                    <h6>11Mb*</h6>
-                                    <h6>Including line rental</h6>
-                                    <hr>
-                                    <ul>
-                                        <li>Free Connection</li>
-                                        <li>Free Anytime Calls</li>
-                                        <li>AC Router</li>
-                                        <li>Best Value</li>
-                                        <li>Broadband 18m Contract</li>
-                                    </ul>
-                                </div>
-                                <div class="plans-button">
-                                    <a href="#" class="button button-border pink-color">BUY now</a>
-                                    <a href="#plansmoreinfo03" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                                </div>
-                                <div class="plans-more-info">
-                                    <h3>Further details</h3>
-                                    <ul>
-                                        <li>£21.99</li>
-                                        <li>per month #</li>
-                                        <li>38Mb*</li>
-                                        <li>Superfast Broadband</li>
-                                        <li>Free Router</li>
-                                        <li>Inclusive Calls</li>
-                                        <li>24m Contract</li>
-                                        <li>*average speed # £21.99 for 3</li>
-                                        <li>months then £24.99 therafter</li>
-                                    </ul>
-                                    <a href="#" class="button pink-bg">BUY NOW</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="plans-col">
-                            <div class="plans-box best-deals-plans-box" id="plansmoreinfo04">
-                                <div class="plans-icon">
-                                    <i class="fa fa-wifi" aria-hidden="true"></i>
-                                    <i class="fa fa-mobile" aria-hidden="true"></i>
-                                </div>
-                                <div class="plans-info match">
-                                    <h5>Lowest priced Broadband + calls</h5>
-                                    <h2>£18.99</h2>
-                                    <h6>11Mb*</h6>
-                                    <h6>Including line rental</h6>
-                                    <hr>
-                                    <ul>
-                                        <li>Free Connection</li>
-                                        <li>Free Anytime Calls</li>
-                                        <li>AC Router</li>
-                                        <li>Best Value</li>
-                                        <li>Broadband 18m Contract</li>
-                                    </ul>
-                                </div>
-                                <div class="plans-button">
-                                    <a href="#" class="button button-border pink-color">BUY now</a>
-                                    <a href="#plansmoreinfo04" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                                </div>
-                                <div class="plans-more-info">
-                                    <h3>Further details</h3>
-                                    <ul>
-                                        <li>£21.99</li>
-                                        <li>per month #</li>
-                                        <li>38Mb*</li>
-                                        <li>Superfast Broadband</li>
-                                        <li>Free Router</li>
-                                        <li>Inclusive Calls</li>
-                                        <li>24m Contract</li>
-                                        <li>*average speed # £21.99 for 3</li>
-                                        <li>months then £24.99 therafter</li>
-                                    </ul>
-                                    <a href="#" class="button pink-bg">BUY NOW</a>
-                                </div>
-                            </div>
-                        </div>
-
+                            @endforeach
+                        @else
+                            <h5>No deals found!</h5>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -244,7 +125,8 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeInUp">
                     <div class="find-connection">
-                        <h2><img src="./assets/images/postcode-icon.png" alt="" title="">We help you find your best connection.</h2>
+                        <h2><img src="./assets/images/postcode-icon.png" alt="" title="">We help you find your best
+                            connection.</h2>
                         <h5>Check my postcode</h5>
                         <form>
                             <input type="" name="" placeholder="Enter your Landline">
@@ -324,155 +206,41 @@
     <section class="empty-space">
         <div class="container">
             <div class="row">
-
-                <div class="col-md-3 col-sm-6 wow fadeInLeft">
-                    <div class="plans-box" id="plans01">
-                        <div class="plans-top-info">
-                            <h5>Unlimited Calls and Unlimited SMS +</h5>
+                @if(isset($shop_deals))
+                    @foreach($shop_deals as $deal)
+                        <div class="col-md-3 col-sm-6 wow fadeInLeft">
+                            <div class="plans-box" id="plans{{ $deal['id'] }}">
+                                <div class="plans-top-info">
+                                    <h5>{{ $deal['title'] }}</h5>
+                                </div>
+                                <div class="plans-info match">
+                                    <h3>£{{ $deal['product_price'] }} <br>Per month</h3>
+                                    <ul>
+                                        @foreach($deal['attributes'] as $attribute)
+                                            <li>{{ $attribute['value'] }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="plans-icon">
+                                    <figure><br><br><br></figure>
+                                </div>
+                                <div class="plans-button">
+                                    <a href="#" class="button button-border pink-color">BUY now</a>
+                                    <a href="#plans{{ $deal['id'] }}" data-toggle="collapse"
+                                       class="button button-border blue-color">More
+                                        info</a>
+                                </div>
+                                <div class="plans-more-info">
+                                    <h3>Further details</h3>
+                                    {!! $deal['product_description'] !!}
+                                    <a href="#" class="button pink-bg">BUY NOW</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="plans-info match">
-                            <h3>£15.00 <br>Per month</h3>
-                            <ul>
-                                <li>4G SIM </li>
-                                <li>+</li>
-                                <li>EE Network</li>
-                                <li>12 month contract</li>
-                            </ul>
-                        </div>
-                        <div class="plans-icon">
-                            <figure><br><br><br></figure>
-                        </div>
-                        <div class="plans-button">
-                            <a href="#" class="button button-border pink-color">BUY now</a>
-                            <a href="#plans01" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                        </div>
-                        <div class="plans-more-info">
-                            <h3>Further details</h3>
-                            <ul>
-                                <li>Unlimited Calls to UK 01, 02, 03</li>
-                                <li>plus UK Mobiles </li>
-                                <li>Unlimited SMS to UK Mobiles </li>
-                                <li>Bring your number </li>
-                                <li>4G SIM card </li>
-                                <li>EE Network</li>
-                            </ul>
-                            <a href="#" class="button pink-bg">BUY NOW</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 wow fadeInUp">
-                    <div class="plans-box" id="plans02">
-                        <div class="plans-top-info">
-                            <h5>Unlimited Calls and Unlimited SMS +</h5>
-                        </div>
-                        <div class="plans-info match">
-                            <h3>£18.00 <br>Per month</h3>
-                            <ul>
-                                <li>4G SIM </li>
-                                <li>+</li>
-                                <li>Vodafone Network</li>
-                                <li>12 month contract</li>
-                            </ul>
-                        </div>
-                        <div class="plans-icon">
-                            <figure><img src="./assets/images/v.png" alt="" title=""></figure>
-                        </div>
-                        <div class="plans-button">
-                            <a href="#" class="button button-border pink-color">BUY now</a>
-                            <a href="#plans02" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                        </div>
-                        <div class="plans-more-info">
-                            <h3>Further details</h3>
-                            <ul>
-                                <li>Unlimited Calls to UK 01, 02, 03</li>
-                                <li>plus UK Mobiles </li>
-                                <li>Unlimited SMS to UK Mobiles </li>
-                                <li>Bring your number </li>
-                                <li>4G SIM card </li>
-                                <li>EE Network</li>
-                            </ul>
-                            <a href="#" class="button pink-bg">BUY NOW</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp">
-                    <div class="plans-box" id="plans03">
-                        <div class="plans-top-info">
-                            <h5>Unlimited Calls and Unlimited SMS +</h5>
-                        </div>
-                        <div class="plans-info match">
-                            <h3>£24.00 <br>Per month</h3>
-                            <ul>
-                                <li>4G SIM </li>
-                                <li>+</li>
-                                <li>Vodafone Network</li>
-                                <li>12 month contract</li>
-                            </ul>
-                        </div>
-                        <div class="plans-icon">
-                            <figure><img src="./assets/images/v.png" alt="" title=""></figure>
-                        </div>
-                        <div class="plans-button">
-                            <a href="#" class="button button-border pink-color">BUY now</a>
-                            <a href="#plans03" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                        </div>
-                        <div class="plans-more-info">
-                            <h3>Further details</h3>
-                            <ul>
-                                <li>£21.99</li>
-                                <li>per month #</li>
-                                <li>38Mb*</li>
-                                <li>Superfast Broadband</li>
-                                <li>Free Router</li>
-                                <li>Inclusive Calls</li>
-                                <li>24m Contract</li>
-                                <li>*average speed # £21.99 for 3</li>
-                                <li>months then £24.99 therafter</li>
-                            </ul>
-                            <a href="#" class="button pink-bg">BUY NOW</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 wow fadeInRight">
-                    <div class="plans-box" id="plans04">
-                        <div class="plans-top-info">
-                            <h5>Unlimited Calls and Unlimited SMS +</h5>
-                        </div>
-                        <div class="plans-info match">
-                            <h3>£34.99 <br>Per month</h3>
-                            <ul>
-                                <li>4G SIM </li>
-                                <li>+</li>
-                                <li><br></li>
-                                <li>O2 Network</li>
-                            </ul>
-                        </div>
-                        <div class="plans-icon">
-                            <figure><img src="./assets/images/o.png" alt="" title=""></figure>
-                        </div>
-                        <div class="plans-button">
-                            <a href="#" class="button button-border pink-color">BUY now</a>
-                            <a href="#plans04" data-toggle="collapse" class="button button-border blue-color">More info</a>
-                        </div>
-                        <div class="plans-more-info">
-                            <h3>Further details</h3>
-                            <ul>
-                                <li>£21.99</li>
-                                <li>per month #</li>
-                                <li>38Mb*</li>
-                                <li>Superfast Broadband</li>
-                                <li>Free Router</li>
-                                <li>Inclusive Calls</li>
-                                <li>24m Contract</li>
-                                <li>*average speed # £21.99 for 3</li>
-                                <li>months then £24.99 therafter</li>
-                            </ul>
-                            <a href="#" class="button pink-bg">BUY NOW</a>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @else
+                    <h5 class="text-center">No deals found!</h5>
+                @endif
             </div>
         </div>
     </section>
@@ -485,7 +253,8 @@
                     <div class="love-superfast-wifi-info">
                         <img src="./assets/images/Icon-weather-lightning.png">
                         <h1 class="title-text white-color">Love superfast wifi?</h1>
-                        <p>Need to stream TV whilst the kids are gaming, your family is browsing the internet and order your next food shop…we have the best high speed routers for you!</p>
+                        <p>Need to stream TV whilst the kids are gaming, your family is browsing the internet and order
+                            your next food shop…we have the best high speed routers for you!</p>
                         <a href="#" class="button pink-bg">Shop deal</a>
                     </div>
                 </div>
@@ -528,7 +297,8 @@
                         <div class="number-icon-box">
                             <img src="./assets/images/number-icon-02.png">
                             <h3 class="large-size">Sit back relax</h3>
-                            <p class="blue-color">We will notify your provider you are switching and take care of every step.</p>
+                            <p class="blue-color">We will notify your provider you are switching and take care of every
+                                step.</p>
                         </div>
                     </div>
                 </div>
@@ -540,7 +310,8 @@
                         <div class="number-icon-box">
                             <img src="./assets/images/number-icon-03.png">
                             <h3 class="large-size">Plug in</h3>
-                            <p class="blue-color">Plug in the router on the day of transfer and enjoy great broadband at a great price.</p>
+                            <p class="blue-color">Plug in the router on the day of transfer and enjoy great broadband at
+                                a great price.</p>
                         </div>
                     </div>
                 </div>
@@ -556,8 +327,10 @@
                     <div class="col-sm-12 wow fadeInUp">
                         <div class="working-from-home-box text-center">
                             <h6 class="small-size white-color">WORKING FROM HOME?</h6>
-                            <h1 class="title-big-text white-color">Our digital systems are built to help businesses from 1 to 1000+</h1>
-                            <p class="small-size white-color">For more Information or custom packages please get in touch</p>
+                            <h1 class="title-big-text white-color">Our digital systems are built to help businesses from
+                                1 to 1000+</h1>
+                            <p class="small-size white-color">For more Information or custom packages please get in
+                                touch</p>
                             <a href="#" class="button pink-bg">LEARN MORE</a>
                         </div>
                     </div>

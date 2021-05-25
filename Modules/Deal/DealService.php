@@ -4,6 +4,7 @@
 namespace Modules\Deal;
 
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\Deal\Entities\DealAttribute;
 use Modules\Deal\Entities\DealType;
@@ -61,5 +62,22 @@ class DealService
     public function getDealTypeDropdown()
     {
         return DealType::pluck('name', 'id');
+    }
+
+    public function getDeals(): Collection
+    {
+        return $this->repository->getAllDeals()->map(function($item, $key) {
+            return [
+                'id' => $item->id,
+                'title' => $item->name,
+                'attributes' => $item->attributes,
+                'deal_type' => $item->dealType->name,
+                'product_id' => $item->product_id,
+                'product_price' => $item->product->price,
+                'product_description' => $item->product->description,
+                'brand_name' => $item->brand->name,
+                'brand_logo' => ($item->brand->medias !== null) ? $item->brand->medias()->first()->attachment : null
+            ];
+        });
     }
 }
