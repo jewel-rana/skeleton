@@ -4,6 +4,10 @@ namespace Modules\Page\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Page\Repository\PageRepository;
+use Modules\Page\Repository\PageRepositoryInterface;
+use Modules\Product\Providers\RouteServiceProvider;
+use Modules\Product\Repository\ProductRepository;
 
 class PageServiceProvider extends ServiceProvider
 {
@@ -38,6 +42,7 @@ class PageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(PageRepositoryInterface::class, PageRepository::class);
     }
 
     /**
