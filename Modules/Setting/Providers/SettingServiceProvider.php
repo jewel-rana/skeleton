@@ -4,6 +4,8 @@ namespace Modules\Setting\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Setting\OptionService;
+use Modules\Setting\OptionServiceInterface;
 
 class SettingServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,10 @@ class SettingServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        $this->app->singleton( OptionService::class, function () {
+            return new OptionService();
+        });
     }
 
     /**
@@ -38,6 +44,7 @@ class SettingServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(OptionServiceInterface::class, OptionService::class);
     }
 
     /**
