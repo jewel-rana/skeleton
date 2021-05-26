@@ -105,8 +105,9 @@ class DealController extends Controller
     public function update(DealUpdateRequest $request, $id): RedirectResponse
     {
         try {
-            $this->deals->update($request->validated(), $id);
+            $this->deals->update($request->only(['name', 'brand_id', 'product_id', 'deal_type_id']), $id);
         } catch (\Throwable $exception) {
+            dd($exception);
             session()->flash('error', $exception->getMessage());
         }
 

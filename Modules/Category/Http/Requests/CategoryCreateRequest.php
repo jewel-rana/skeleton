@@ -14,7 +14,7 @@ class CategoryCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|alpha|unique:categories,name',
+            'name' => 'bail|required|unique:categories,name',
             'description' => 'bail|nullable'
         ];
     }

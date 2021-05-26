@@ -92,11 +92,6 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                        @if($deal['brand_logo'] !== null)
-                                        <div class="plans-icon">
-                                            <figure><img src="{{ asset($deal['brand_logo']) }}" alt="" title=""></figure>
-                                        </div>
-                                        @endif
                                         <div class="plans-button">
                                             <a href="#" class="button button-border pink-color">BUY now</a>
                                             <a href="#plansmoreinfo{{ $deal['id'] }}" data-toggle="collapse"
@@ -222,7 +217,11 @@
                                     </ul>
                                 </div>
                                 <div class="plans-icon">
+                                    @if($deal['brand_logo'] !== null)
+                                        <figure><img src="{{ asset($deal['brand_logo']) }}" alt="" title=""></figure>
+                                    @else
                                     <figure><br><br><br></figure>
+                                    @endif
                                 </div>
                                 <div class="plans-button">
                                     <a href="#" class="button button-border pink-color">BUY now</a>

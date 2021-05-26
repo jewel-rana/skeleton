@@ -11,5 +11,6 @@
     "Slider": true,
     "Brand": true,
     "Media": true,
-    "Menu": true
+    "Menu": true,
+    "Setting": true
 }

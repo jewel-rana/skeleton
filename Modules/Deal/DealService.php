@@ -41,7 +41,7 @@ class DealService
     {
         $deal = $this->repository->update($data, $id);
         if(request()->has('attribute')) {
-            foreach($data['attribute'] as $key => $attribute) {
+            foreach(request()->input('attribute') as $key => $attribute) {
                 DealAttribute::updateOrCreate(
                     [
                         'deal_id' => $id,

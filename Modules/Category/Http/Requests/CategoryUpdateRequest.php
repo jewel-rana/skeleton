@@ -14,7 +14,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|alpha|unique:categories,name,' . $this->category,
+            'name' => 'bail|required|unique:categories,name,' . $this->category,
             'description' => 'bail|nullable'
         ];
     }

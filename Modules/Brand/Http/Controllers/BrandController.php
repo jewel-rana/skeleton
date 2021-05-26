@@ -68,7 +68,6 @@ class BrandController extends Controller
         try {
             $this->brands->create($request->validated());
         } catch (\Throwable $exception) {
-            dd($exception);
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
         }
@@ -107,7 +106,6 @@ class BrandController extends Controller
         try {
             $this->brands->update($request->validated(), $id);
         } catch (\Throwable $exception) {
-            dd($exception);
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
         }

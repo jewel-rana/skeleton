@@ -40,6 +40,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css') }}">
     <!-- END: Custom CSS-->
     <script> let basePath = "{{url('/')}}";</script>
+    @yield('header')
 </head>
 <!-- END: Head-->
 

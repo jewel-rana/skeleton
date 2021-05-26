@@ -15,6 +15,6 @@ class Brand extends Model
 
     public function medias(): BelongsToMany
     {
-        return $this->belongsToMany(Media::class);
+        return $this->belongsToMany(Media::class)->latest();
     }
 }
