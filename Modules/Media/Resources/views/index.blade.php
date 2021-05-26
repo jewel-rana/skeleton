@@ -16,6 +16,7 @@
                         <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Thumb</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Size</th>
@@ -60,6 +61,7 @@
                 },
                 columns: [
                     {data: 'id', name: 'id'},
+                    {data: 'thumbnail', name: 'thumbnail'},
                     {data: 'attachment', name: 'attachment'},
                     {data: 'type', name: 'type'},
                     {data: 'size', name: 'size'},

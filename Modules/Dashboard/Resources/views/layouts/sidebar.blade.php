@@ -21,14 +21,26 @@
                     data-feather="more-horizontal"></i>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('product.index') }}">
-                    <i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Email">Products</span>
+                <a class="d-flex align-items-center" href="#">
+                    <i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Products</span>
                 </a>
-            </li>
-            <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('category.index') }}">
-                    <i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Categories</span>
-                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('product.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">All products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('brand.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Brands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('category.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Categories</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('slider.index') }}">
@@ -36,9 +48,21 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('deal.index') }}">
-                    <i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Deals</span>
+                <a class="d-flex align-items-center" href="#">
+                    <i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Deals</span>
                 </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('deal.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">All deals</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="d-flex align-items-center" href="{{ route('deal-type.index') }}">
+                            <i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Deal types</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('media.index') }}">

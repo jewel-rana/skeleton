@@ -14,10 +14,21 @@
                         <h2 class="content-header-title float-left mb-0">{{ $title ?? "Title here" }}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                </li>
+                                @php
+                                $url = url('/');
+                                    $segments = Request::segments();
+                                    $segmentCount = count( $segments ) - 1;
+                                    foreach( $segments as $key => $segment) :
+                                    $url .=  '/' . $segment;
+                                    if( is_integer( $segment ) ) :
+                                    $segmentCount = $segmentCount - 1;
+                                    else :
+                                @endphp
+                                <li class="breadcrumb-item @php echo ( $segmentCount === $key ) ? 'active' : ''; @endphp">@if(( $segmentCount !== $key ))<a href="{{ $url }}">@endif{{ ucfirst( str_replace('-', ' ', $segment) ) }}@if(( $segmentCount !== $key ))</a>@endif</li>
+                                @php
+                                    endif;
+                                    endforeach;
+                                @endphp
                             </ol>
                         </div>
                     </div>

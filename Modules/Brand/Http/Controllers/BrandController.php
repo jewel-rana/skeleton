@@ -40,9 +40,10 @@ class BrandController extends Controller
                 })
                 ->addColumn('logo', function ($brand) {
                     $logo = ($brand->medias->count()) ? $brand->medias->first()->attachment : 'default/brand.jpg';
-                    return "<img src='" . asset($logo) . "' title='" . $brand->name . "' />";
+                    return "<img src='" . asset($logo) . "' title='" . $brand->name . "' class='table-img' />";
                 })
                 ->removeColumn('medias')
+                ->rawColumns(['action', 'logo'])->addIndexColumn()
                 ->make(true);
         }
         return view('brand::index')->withTitle('Brands');

@@ -34,12 +34,17 @@ class MediaController extends Controller
             $medias = Media::select(['id', 'attachment', 'type', 'size', 'dimension']);
 
             return Datatables::of($medias)
+                ->addColumn('thumbnail', function($media) {
+                    $thumb = ($media->attachment) ? $media->attachment : 'default/brand.jpg';
+                    return "<img src='" . asset($thumb) . "' class='table-img' />";
+                })
                 ->addColumn('action', function($media) {
                     return "<form action='" . route('media.destroy', $media->id) . "' method='POST'>
                         ". csrf_field() . method_field('DELETE') ."
                         <button type='submit' class='btn btn-danger'>Delete</button>
 </form>";
                 })
+                ->rawColumns(['action', 'thumbnail'])->addIndexColumn()
                 ->make(true);
         }
         return view('media::index')->withTitle('Medias');
