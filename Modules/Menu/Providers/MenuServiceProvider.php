@@ -4,6 +4,10 @@ namespace Modules\Menu\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Menu\Repository\MenuRepository;
+use Modules\Menu\Repository\MenuRepositoryInterface;
+use Modules\Page\Repository\PageRepository;
+use Modules\Page\Repository\PageRepositoryInterface;
 
 class MenuServiceProvider extends ServiceProvider
 {
@@ -38,6 +42,7 @@ class MenuServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(MenuRepositoryInterface::class, MenuRepository::class);
     }
 
     /**

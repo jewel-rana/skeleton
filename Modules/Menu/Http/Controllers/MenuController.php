@@ -5,9 +5,23 @@ namespace Modules\Menu\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
+use Modules\Menu\Http\Requests\MenuCreateRequest;
+use Modules\Menu\MenuService;
+use Modules\Page\Http\Requests\PageCreateRequest;
+use Modules\Page\PageService;
 
 class MenuController extends Controller
 {
+
+
+    private $menus;
+
+    public function __construct(MenuService $menus)
+    {
+        $this->menus = $menus;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -23,7 +37,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menu::create');
+        return view('menu::create')->withTitle('Add New Menu');
     }
 
     /**
@@ -31,9 +45,23 @@ class MenuController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(MenuCreateRequest $request)
     {
-        //
+        try {
+           $model  =  $this->menus->create($request->validated());
+
+            if ($request->hasfile('logo')) {
+                $logo = Storage::disk('public')->put("menu", $request->file('logo'));
+                $model->logo = $logo;
+                $model->save();
+
+            }
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('menu.index');
     }
 
     /**
