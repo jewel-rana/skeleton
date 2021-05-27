@@ -4,14 +4,12 @@
 namespace Modules\Media;
 
 
-use Intervention\Image\Facades\Image;
-use Modules\Brand\Entities\Brand;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Media\Repository\MediaRepositoryInterface;
 
 class MediaService
 {
     private $dir;
-    private $property;
     private $repository;
 
     public function __construct(MediaRepositoryInterface $repository)
@@ -19,16 +17,15 @@ class MediaService
         $this->repository = $repository;
     }
 
-    public function upload(Brand $brand, $files, $dir = 'uploads/files')
+    public function upload($files, $dir = 'uploads/files')
     {
-        $this->property = $brand;
         $this->dir = $dir;
         if(is_array($files)) {
             foreach($files as $file) {
-                $this->handle($file);
+                return $this->handle($file);
             }
         } else {
-            $this->handle($files);
+            return $this->handle($files);
         }
     }
 
@@ -43,8 +40,7 @@ class MediaService
                 'dimension' => '',
                 'user_id' => auth()->user()->id
             ]);
-
-            $this->property->medias()->attach($media->id);
+            return $media;
         }
     }
 }

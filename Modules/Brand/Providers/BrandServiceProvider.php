@@ -2,9 +2,11 @@
 
 namespace Modules\Brand\Providers;
 
+use App\Models\ModelInterface;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Brand\Entities\Brand;
 use Modules\Brand\Repository\BrandRepository;
 use Modules\Brand\Repository\BrandRepositoryInterface;
 
@@ -42,6 +44,7 @@ class BrandServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(BrandRepositoryInterface::class, BrandRepository::class);
+        $this->app->bind(ModelInterface::class, Brand::class);
         View::composer(
             '*', 'Modules\Brand\Http\View\BrandComposer'
         );

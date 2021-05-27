@@ -2,8 +2,12 @@
 
 namespace Modules\Slider\Providers;
 
+use App\Models\ModelInterface;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Slider\Entities\Slider;
+use Modules\Slider\Repository\SliderRepository;
+use Modules\Slider\Repository\SliderRepositoryInterface;
 
 class SliderServiceProvider extends ServiceProvider
 {
@@ -38,6 +42,7 @@ class SliderServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
     }
 
     /**

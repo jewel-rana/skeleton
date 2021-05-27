@@ -44,7 +44,7 @@ class CategoryController extends Controller
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function create()
+    public function create(): Renderable
     {
         return view('category::create')->withTitle('Add new category');
     }
@@ -68,7 +68,7 @@ class CategoryController extends Controller
 
     /**
      * Show the specified resource.
-     * @param Category $product
+     * @param Category $category
      * @return Renderable
      */
     public function show(Category $category)
@@ -81,7 +81,7 @@ class CategoryController extends Controller
      * @param Category $category
      * @return Renderable
      */
-    public function edit(Category $category)
+    public function edit(Category $category): Renderable
     {
         return view('category::edit', compact('category'))->withTitle('Update category');
     }

@@ -75,8 +75,8 @@ class DealService
                 'product_id' => $item->product_id,
                 'product_price' => $item->product->price,
                 'product_description' => $item->product->description,
-                'brand_name' => $item->brand->name,
-                'brand_logo' => ($item->brand->medias !== null) ? $item->brand->medias()->first()->attachment : null
+                'brand_name' => $item->brand ? $item->brand->name : null,
+                'brand_logo' => ($item->brand && $item->brand->medias) ? $item->brand->medias()->first()->attachment : null
             ];
         });
     }
