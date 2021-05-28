@@ -41,7 +41,7 @@ class PageController extends Controller
                 })
                 ->rawColumns(['description', 'action'])->addIndexColumn()->make(true);
         }
-        return view('page::index')->withTitle('pages');
+        return view('page::index')->withTitle('Pages');
     }
 
     /**

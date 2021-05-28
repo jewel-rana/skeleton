@@ -29,7 +29,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="email-id-vertical">Description</label>
-                                        <textarea id="email-id-vertical" class="form-control" rows="10"
+                                        <textarea id="email-id-vertical" class="form-control editor" rows="10"
                                                   name="description"
                                                   placeholder="Description">{{ old('description') }}</textarea>
                                     </div>
@@ -38,7 +38,94 @@
                         </div>
                     </div>
 
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Attributes</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="invoice-repeater">
+                                <div data-repeater-list="attribute">
+                                    @if(old('attribute'))
+                                        @foreach(old('attribute') as $attribute)
+                                            <div data-repeater-item>
+                                                <div class="row d-flex align-items-end">
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-group">
+                                                            <label for="itemname">Label</label>
+                                                            <input type="text" class="form-control" name="label"
+                                                                   id="itemname" value="{{ $attribute['label'] }}" aria-describedby="itemname"
+                                                                   placeholder="Label"/>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="itemvalue">Value</label>
+                                                            <textarea class="form-control" name="value"
+                                                                   id="itemvalue" value="{{ $attribute['value'] }}" aria-describedby="itemvalue"
+                                                                      placeholder="Value"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-1 col-12 mb-50">
+                                                        <div class="form-group">
+                                                            <button class="btn btn-outline-danger text-nowrap px-1"
+                                                                    data-repeater-delete type="button">
+                                                                <i data-feather="x" class="mr-25"></i>
+                                                                <span>Delete</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div data-repeater-item>
+                                            <div class="row d-flex align-items-end">
+                                                <div class="col-md-4 col-12">
+                                                    <div class="form-group">
+                                                        <label for="itemname">Label</label>
+                                                        <input type="text" class="form-control" name="label"
+                                                               id="itemname" aria-describedby="itemname"
+                                                               placeholder="Label"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="itemvalue">Value</label>
+                                                        <textarea class="form-control" name="value"
+                                                               id="itemvalue" aria-describedby="itemvalue"
+                                                                  placeholder="Value"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-1 col-12 mb-50">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-outline-danger text-nowrap px-1"
+                                                                data-repeater-delete type="button">
+                                                            <i data-feather="x" class="mr-25"></i>
+                                                            <span>Delete</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-icon btn-primary" type="button" data-repeater-create>
+                                            <i data-feather="plus" class="mr-25"></i>
+                                            <span>{{ __('Add New') }}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
@@ -94,11 +181,13 @@
 @section('footer')
     <script src="{{ asset('assets/admin/js/vendors/js/forms/wizard/bs-stepper.min.j') }}s"></script>
     <script src="{{ asset('assets/admin/js/scripts/forms/form-wizard.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/scripts/forms/form-repeater.js') }}"></script>
     <script src="https://cdn.tiny.cloud/1/idal2zwhxlnk67o4lcz5xb5csdu88xw9f1delibgnh1gihmh/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: 'textarea',
+            selector: 'textarea.editor',
             height: 500,
             menubar: false,
             plugins: [

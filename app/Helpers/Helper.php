@@ -8,8 +8,7 @@ function getOption($key, $default = null)
     return $option->get($key, $default);
 }
 
-function getHero($slider = 1)
+function getPageAttribute($pageID, $attribute)
 {
-    $slide = collect($slier_items)->where('slider_id', $slider)->shuffle()->first();
-    dd($slide);
+    return '';
 }

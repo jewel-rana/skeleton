@@ -17,6 +17,7 @@ class CreateMenuItemsTable extends Migration
             $table->id();
             $table->bigInteger('menu_id');
             $table->enum('type', ['page', 'category', 'custom'])->default('custom');
+            $table->string('name');
             $table->string('menu_url')->default('#');
             $table->string('css_class')->nullable();
             $table->string('icon_class')->nullable();
