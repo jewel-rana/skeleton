@@ -3,6 +3,7 @@
 namespace Modules\Slider\Providers;
 
 use App\Models\ModelInterface;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Modules\Slider\Entities\Slider;
@@ -43,6 +44,9 @@ class SliderServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
+        View::composer(
+            '*', 'Modules\Slider\Http\View\SliderComposer'
+        );
     }
 
     /**

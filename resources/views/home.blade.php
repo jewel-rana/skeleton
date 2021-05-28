@@ -1,19 +1,6 @@
 @extends('layout.default')
 @section('content')
-    <!-- Start Of Hero Section -->
-    <section>
-        <div class="hero-box">
-            <div class="hero-image">
-                <img src="./assets/images/Hero-Image.png" alt="" title="">
-            </div>
-            <div class="hero-info wow fadeInRight">
-                <h1 class="title-text white-color">Defining digital connections. Flexible, cheap and reliable TV, mobile
-                    and Internet.</h1>
-                <p>A network provider with resources you can rely on.</p>
-                <a href="#" class="button pink-bg">VIEW DEALS</a>
-            </div>
-        </div>
-    </section>
+    @include('layouts.slider')
     <!-- End Of Hero Section -->
     <!-- Start Of Category Section -->
     <section class="pink-bg">
