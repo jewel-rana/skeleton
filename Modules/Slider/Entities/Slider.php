@@ -15,7 +15,7 @@ class Slider extends Model implements ModelInterface
 
     public function medias(): BelongsToMany
     {
-        return $this->belongsToMany(Media::class)->withPivot(['title', 'description', 'btn_text', 'btn_link', 'created_at', 'updated_at']);
+        return $this->belongsToMany(Media::class)->withPivot(['id', 'title', 'description', 'btn_text', 'btn_link', 'created_at', 'updated_at']);
     }
 
     public function user(): BelongsTo

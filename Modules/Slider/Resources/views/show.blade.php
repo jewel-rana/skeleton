@@ -27,7 +27,14 @@
                             <td>{{ $slide->pivot->title }}</td>
                             <td>{{ $slide->pivot->description }}</td>
                             <td>{{ $slide->pivot->btn_text }}</td>
-                            <td></td>
+                            <td>
+                                <form class="form-inline form-horizontal" method="POST" action="{{ route('slide.destroy', $slide->id) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="slider_id" value="{{ $slider->id }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>
