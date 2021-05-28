@@ -17,10 +17,7 @@ class CreateMenusTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->string('name')->unique();
-            $table->string('logo')->nullable();
-            $table->unsignedBigInteger('parent_id')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+            $table->string('wrapper_class')->nullable();
         });
     }
 
