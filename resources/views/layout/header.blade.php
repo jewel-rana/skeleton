@@ -24,14 +24,15 @@
 
             <div class="col-sm-6 col-height col-middle toggle-menu">
                 <div class="header-menu ">
-                    <ul>
-                        <li><a href="#">Landline</a></li>
-                        <li><a href="{{route('internet-deals')}}">Internet</a></li>
-                        <li><a href="#">TV</a></li>
-                        <li><a href="#">Mobile</a></li>
-                        <li><a href="#">Top Deals</a></li>
-                        <li><a href="#">WFH Packages</a></li>
-                    </ul>
+{{--                    <ul>--}}
+{{--                        <li><a href="#">Landline</a></li>--}}
+{{--                        <li><a href="{{route('internet-deals')}}">Internet</a></li>--}}
+{{--                        <li><a href="#">TV</a></li>--}}
+{{--                        <li><a href="#">Mobile</a></li>--}}
+{{--                        <li><a href="#">Top Deals</a></li>--}}
+{{--                        <li><a href="#">WFH Packages</a></li>--}}
+{{--                    </ul>--}}
+                    {!! getMenu(getOption('top_menu')) !!}
                 </div>
             </div>
             <div class="col-sm-5 col-height col-middle  hidden-xs">

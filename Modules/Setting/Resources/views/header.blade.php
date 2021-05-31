@@ -34,7 +34,7 @@
                                 <select name="top_menu" class="form-control" required>
                                     <option value="">Select menu</option>
                                     @foreach($menu_lists as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
+                                        <option value="{{ $key }}" @if(old('top_menu', getOption('top_menu')) === $key) selected @endif>{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>

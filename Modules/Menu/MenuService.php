@@ -41,4 +41,9 @@ class MenuService
     {
         return $this->repository->all()->pluck('name', 'name');
     }
+
+    public function getMenu($name)
+    {
+        return $this->repository->get($name);
+    }
 }

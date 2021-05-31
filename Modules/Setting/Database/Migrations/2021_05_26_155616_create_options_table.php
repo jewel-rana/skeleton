@@ -16,8 +16,8 @@ class CreateOptionsTable extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->id();
             $table->string('field');
-            $table->text('value');
-            $table->string('tab');
+            $table->text('value')->nullable();
+            $table->string('tab')->default('general');
         });
     }
 
