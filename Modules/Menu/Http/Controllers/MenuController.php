@@ -2,19 +2,18 @@
 
 namespace Modules\Menu\Http\Controllers;
 
+use App\Constants\AppConst;
+use App\Constants\Constant;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Storage;
+use Modules\Menu\Entities\Menu;
 use Modules\Menu\Http\Requests\MenuCreateRequest;
+use Modules\Menu\Http\Requests\MenuUpdateRequest;
 use Modules\Menu\MenuService;
-use Modules\Page\Http\Requests\PageCreateRequest;
-use Modules\Page\PageService;
 
 class MenuController extends Controller
 {
-
-
     private $menus;
 
     public function __construct(MenuService $menus)
@@ -26,36 +25,30 @@ class MenuController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(): Renderable
     {
-        return view('menu::index');
+        $menus = $this->menus->all();
+        return view('menu::index', compact('menus'))->withTitle('Menus');
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function create()
+    public function create(): Renderable
     {
         return view('menu::create')->withTitle('Add New Menu');
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param MenuCreateRequest $request
+     * @return RedirectResponse
      */
-    public function store(MenuCreateRequest $request)
+    public function store(MenuCreateRequest $request): RedirectResponse
     {
         try {
-           $model  =  $this->menus->create($request->validated());
-
-            if ($request->hasfile('logo')) {
-                $logo = Storage::disk('public')->put("menu", $request->file('logo'));
-                $model->logo = $logo;
-                $model->save();
-
-            }
+           $this->menus->create($request->validated());
         } catch (\Throwable $exception) {
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
@@ -66,33 +59,40 @@ class MenuController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
+     * @param Menu $menu
      * @return Renderable
      */
-    public function show($id)
+    public function show(Menu $menu): Renderable
     {
-        return view('menu::show');
+        return view('menu::show', compact('menu'))->withTitle('Menu: ' . $menu->name);
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     * @param Menu $menu
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Menu $menu): Renderable
     {
-        return view('menu::edit');
+        return view('menu::edit', compact('menu'))->withTitle('Update menu');
     }
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param MenuUpdateRequest $request
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(MenuUpdateRequest $request, $id): RedirectResponse
     {
-        //
+        try {
+            $this->menus->update($request->validated(), $id);
+        } catch (\Throwable $exception) {
+            session()->flash('error', $exception->getMessage());
+            return redirect()->back();
+        }
+
+        return redirect()->route('menu.index');
     }
 
     /**

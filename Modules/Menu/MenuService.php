@@ -5,6 +5,7 @@ namespace Modules\Menu;
 
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Collection;
 use Modules\Menu\Repository\MenuRepositoryInterface;
 use Modules\Product\Entities\Product;
 
@@ -21,9 +22,14 @@ class MenuService
         $this->repository = $repository;
     }
 
+    public function all()
+    {
+        return $this->repository->all();
+    }
+
     public function create(array $data)
     {
-        return $this->repository->create($data + ['user_id' => auth()->user()->id]);
+        return $this->repository->create($data);
     }
 
     public function update(array $data, $id)
@@ -31,5 +37,8 @@ class MenuService
         return $this->repository->update($data, $id);
     }
 
-
+    public function getMenuList(): Collection
+    {
+        return $this->repository->all()->pluck('name', 'name');
+    }
 }

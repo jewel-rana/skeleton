@@ -5,17 +5,16 @@ namespace Modules\Menu\Repository;
 
 
 use App\Repository\BaseRepository;
-use Illuminate\Support\Collection;
-use Modules\Menu\Entities\Menu;
+use Modules\Menu\Entities\MenuItem;
 
-class MenuRepository extends BaseRepository implements MenuRepositoryInterface
+class MenuItemRepository extends BaseRepository implements MenuItemRepositoryInterface
 {
-    public function __construct(Menu $model)
+    public function __construct(MenuItem $model)
     {
         parent::__construct($model);
     }
 
-    public function all(): Collection
+    public function all()
     {
         return parent::all();
     }
@@ -27,7 +26,7 @@ class MenuRepository extends BaseRepository implements MenuRepositoryInterface
 
     public function update(array $data, $id)
     {
-        return parent::update($data,$id);
+        return parent::update($data, $id);
     }
 
     public function delete($id)

@@ -5,6 +5,7 @@ namespace Modules\Media;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Modules\Media\Repository\MediaRepositoryInterface;
 
 class MediaService
@@ -34,13 +35,13 @@ class MediaService
         if($file) {
             $imageName = time() . '.' . $file->extension();
             $file->move(public_path($this->dir), $imageName);
-            $media = $this->repository->create([
+            return $this->repository->create([
                 'attachment' => $this->dir . '/' . $imageName,
                 'extension' => 'jpg',
                 'dimension' => '',
                 'user_id' => auth()->user()->id
             ]);
-            return $media;
         }
+        return null;
     }
 }

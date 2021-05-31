@@ -33,6 +33,9 @@
                                 </div>
                                 <select name="top_menu" class="form-control" required>
                                     <option value="">Select menu</option>
+                                    @foreach($menu_lists as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

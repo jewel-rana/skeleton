@@ -2,8 +2,11 @@
 
 namespace Modules\Menu\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Menu\Repository\MenuItemRepository;
+use Modules\Menu\Repository\MenuItemRepositoryInterface;
 use Modules\Menu\Repository\MenuRepository;
 use Modules\Menu\Repository\MenuRepositoryInterface;
 use Modules\Page\Repository\PageRepository;
@@ -43,6 +46,8 @@ class MenuServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(MenuRepositoryInterface::class, MenuRepository::class);
+        $this->app->bind(MenuItemRepositoryInterface::class, MenuItemRepository::class);
+        View::composer('*', 'Modules\Menu\Http\View\MenuComposer');
     }
 
     /**

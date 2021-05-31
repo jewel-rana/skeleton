@@ -33,7 +33,7 @@
     "autoload": {
         "files": [
             "app/Helpers/Helper.php",
-            "app/Constants/AppConst.php"
+            "app/Constants/Constant.php"
         ],
         "psr-4": {
             "App\\": "app/",

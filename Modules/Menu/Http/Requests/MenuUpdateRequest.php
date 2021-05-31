@@ -4,7 +4,7 @@ namespace Modules\Menu\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MenuCreateRequest extends FormRequest
+class MenuUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,7 @@ class MenuCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|unique:menus,name',
+            'name' => 'bail|required|unique:menus,name,' . $this->menu,
             'description' => 'bail|nullable'
         ];
     }

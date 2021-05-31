@@ -23,7 +23,6 @@ class CreateMenuItemsTable extends Migration
             $table->string('icon_class')->nullable();
             $table->integer('parent_id')->default(0);
             $table->integer('menu_order')->default(99);
-            $table->timestamps();
         });
     }
 
