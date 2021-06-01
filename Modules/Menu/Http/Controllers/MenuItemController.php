@@ -3,10 +3,12 @@
 namespace Modules\Menu\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Modules\Menu\Events\MenuUpdateEvent;
 use Modules\Menu\Http\Requests\MenuItemCreateRequest;
 use Modules\Menu\Http\Requests\MenuItemUpdateRequest;
 use Modules\Menu\MenuItemService;
@@ -41,21 +43,23 @@ class MenuItemController extends Controller
      * Update the specified resource in storage.
      * @param MenuItemUpdateRequest $request
      * @param int $id
-     * @return RedirectResponse
+     * @return JsonResponse
      */
-    public function update(MenuItemUpdateRequest $request, $id): RedirectResponse
+    public function update(MenuItemUpdateRequest $request, $id): JsonResponse
     {
+        $data = ['status' => false, 'message'=> 'Cannot save changes'];
         try {
             $this->menuItems->update($request->validated(), $id);
+            $data['message'] = 'Successfully updated menu';
+            $data['status'] = true;
         } catch (\Throwable $exception) {
-            session()->flash('error', $exception->getMessage());
-            return redirect()->back();
+            $data['message'] = $exception->getMessage();
         }
 
-        return redirect()->back();
+        return response()->json($data);
     }
 
-    public function save(Request $request)
+    public function save(Request $request): JsonResponse
     {
         $data = ['status' => false, 'message'=> 'Cannot save changes'];
         try {
@@ -67,10 +71,10 @@ class MenuItemController extends Controller
                     });
                 }
             }, 2);
+            event(new MenuUpdateEvent());
             $data['status'] = true;
             $data['message'] = 'Your changes successfully saved';
         } catch (\Throwable $exception) {
-            dd($exception);
             $data['message'] = $exception->getMessage();
         }
 
@@ -80,10 +84,18 @@ class MenuItemController extends Controller
     /**
      * Remove the specified resource from storage.
      * @param int $id
-     * @return Renderable
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
-        //
+        $data = ['status' => false, 'message'=> 'Cannot save changes'];
+        try {
+            $this->menuItems->delete($id);
+            $data['status'] = true;
+            $data['message'] = 'Successfully deleted menu';
+        } catch (\Throwable $exception) {
+            $data['message'] = $exception->getMessage();
+        }
+        return response()->json($data);
     }
 }

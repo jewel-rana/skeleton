@@ -27,6 +27,14 @@
 
 
 <script>
+    jQuery(function ($) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+
     $(window).on('load', function() {
         if (feather) {
             feather.replace({
@@ -34,7 +42,7 @@
                 height: 14
             });
         }
-    })
+    });
 </script>
 @yield('footer')
 </body>

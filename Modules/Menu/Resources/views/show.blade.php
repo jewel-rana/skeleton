@@ -122,6 +122,18 @@
 
     <script>
         jQuery(function ($) {
+            $('.menuUpdateForm').submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+
+                return false;
+            });
             var ns = $('ol.sortable').nestedSortable({
                 forcePlaceholderSize: true,
                 handle: 'div',
@@ -154,16 +166,18 @@
 
             $('.deleteMenu').click(function () {
                 var id = $(this).attr('data-id');
-                $('#menuItem_' + id).remove();
+                $.ajax({
+                    type: "DELETE",
+                    url: $(this).data('url'),
+                    success: function (data) {
+                        alert(data.message);
+                        $('#menuItem_' + id).remove();
+                    }
+                });
             });
 
             $('#toArray').click(function (e) {
                 let sorted = $('ol.sortable').nestedSortable('toArray', {startDepthCount: 0});
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
                 $('#toArrayOutput').text("Saving...");
                 $.ajax({
                     type: "POST",
