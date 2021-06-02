@@ -172,7 +172,7 @@
             <div class="row">
                 <div class="col-sm-5 fastest-unlimited-box wow fadeInRight">
                     <div class="fastest-unlimited-info">
-                        <h1 class="title-text white-color">{{ getOption('section5_title', 'Fastest 5G <br>unlimited') }}</h1>
+                        <h1 class="title-text white-color">{!! getOption('section5_title', 'Fastest 5G <br>unlimited') !!}</h1>
                         <a href="{{ getOption('section5_url', '') }}" class="button pink-bg">Shop deal</a>
                     </div>
                 </div>

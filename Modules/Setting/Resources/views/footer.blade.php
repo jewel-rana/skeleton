@@ -11,6 +11,17 @@
 
                     <div class="form-group row">
                         <div class="col-sm-3 col-form-label">
+                            <label for="footer_logo">Footer logo</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <input type="text" id="footer_logo" class="form-control" value="{{ getOption('footer_logo') }}" name="copyright" placeholder="Footer logo" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
                             <label for="copyright">Copyright message</label>
                         </div>
                         <div class="col-sm-9">
