@@ -48,13 +48,9 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 wow fadeInLeft">
                     <div class="best-deals-info">
-                        <h1 class="title-text">Enjoy our best deals</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially
-                            unchanged. </p>
-                        <a href="#" class="button pink-bg">See Internet deals</a>
+                        <h1 class="title-text">{{ getOption('section1_title', 'Enjoy our best deals') }}</h1>
+                        <p>{{ getOption('section1_description', '') }}</p>
+                        <a href="{{ getOption('section1_url', '#') }}" class="button pink-bg">See Internet deals</a>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-6 wow fadeInRight">
@@ -107,13 +103,14 @@
             <div class="row">
                 <div class="col-sm-12 wow fadeInUp">
                     <div class="find-connection">
-                        <h2><img src="./assets/images/postcode-icon.png" alt="" title="">We help you find your best
-                            connection.</h2>
-                        <h5>Check my postcode</h5>
-                        <form>
+                        <h2><img src="./assets/images/postcode-icon.png" alt="" title="">{{ getOption('section2_title', 'We help you find your best
+                            connection.') }}</h2>
+                        <h5>{{ getOption('section2_label', 'Check my postcode') }}</h5>
+                        <form action="/" method="POST">
+                            @csrf
                             <input type="" name="" placeholder="Enter your Landline">
                             <input type="" name="" placeholder="Enter your Postcode">
-                            <button>Go</button>
+                            <button type="submit">Go</button>
                         </form>
                     </div>
                 </div>
@@ -133,16 +130,16 @@
                 </div>
                 <div class="col-sm-6 wow fadeInRight">
                     <div class="pop-tv-info">
-                        <h1 class="title-text white-color">Upgrade to Pop TV</h1>
-                        <h6>Choose a package, free installation, watch away!</h6>
+                        <h1 class="title-text white-color">{{ getOption('section3_title', 'Upgrade to Pop TV') }}</h1>
+                        <h6>{{ getOption('section3_description', 'Choose a package, free installation, watch away!') }}</h6>
                         <ul>
                             <li>Rolling contract</li>
-                            <li>12 months free amazon Prime</li>
+                            <li>{{ getOption('section3_contract', '12 months free amazon Prime') }}</li>
                         </ul>
                         <h4>From</h4>
-                        <h2 class="title-text white-color">£15</h2>
+                        <h2 class="title-text white-color">£{{ getOption('section3_price', '15') }}</h2>
                         <h5>per month</h5>
-                        <a href="#" class="button pink-bg">Check availability</a>
+                        <a href="{{ getOption('section3_url', '') }}" class="button pink-bg">Check availability</a>
                     </div>
                 </div>
 
@@ -156,8 +153,8 @@
 
             <div class="col-sm-5 col-height col-middle wow fadeInLeft">
                 <div class="turbo-charge-pop-tv-info">
-                    <h1 class="title-text">Upgrade to Pop TV</h1>
-                    <a href="#" class="button pink-bg">Shop deal</a>
+                    <h1 class="title-text">{{ getOption('section4_title', '') }}Upgrade to Pop TV</h1>
+                    <a href="{{ getOption('section4_url', '') }}" class="button pink-bg">Shop deal</a>
                 </div>
             </div>
             <div class="col-sm-7 col-height col-middle wow fadeInRight">
@@ -175,8 +172,8 @@
             <div class="row">
                 <div class="col-sm-5 fastest-unlimited-box wow fadeInRight">
                     <div class="fastest-unlimited-info">
-                        <h1 class="title-text white-color">Fastest 5G <br>unlimited</h1>
-                        <a href="#" class="button pink-bg">Shop deal</a>
+                        <h1 class="title-text white-color">{{ getOption('section5_title', 'Fastest 5G <br>unlimited') }}</h1>
+                        <a href="{{ getOption('section5_url', '') }}" class="button pink-bg">Shop deal</a>
                     </div>
                 </div>
             </div>
@@ -238,10 +235,10 @@
                 <div class="col-md-5 love-superfast-wifi-box wow fadeInRight">
                     <div class="love-superfast-wifi-info">
                         <img src="./assets/images/Icon-weather-lightning.png">
-                        <h1 class="title-text white-color">Love superfast wifi?</h1>
-                        <p>Need to stream TV whilst the kids are gaming, your family is browsing the internet and order
-                            your next food shop…we have the best high speed routers for you!</p>
-                        <a href="#" class="button pink-bg">Shop deal</a>
+                        <h1 class="title-text white-color">{{ getOption('section7_title', 'Love superfast wifi?') }}</h1>
+                        <p>{{ getOption('section7_description', 'Need to stream TV whilst the kids are gaming, your family is browsing the internet and order
+                            your next food shop…we have the best high speed routers for you!') }}</p>
+                        <a href="{{ getOption('section7_url', '') }}" class="button pink-bg">Shop deal</a>
                     </div>
                 </div>
             </div>
@@ -259,8 +256,8 @@
                 </div>
                 <div class="col-sm-3 wow fadeInLeft">
                     <div class="switching-box">
-                        <h4 class="title-text">Switching is simple</h4>
-                        <p class="small-size blue-color">Switch your provider over to us</p>
+                        <h4 class="title-text">{{ getOption('section8_title', 'Switching is simple') }}</h4>
+                        <p class="small-size blue-color">{{ getOption('section8_description', 'Switch your provider over to us') }}</p>
                     </div>
                 </div>
                 <div class="col-sm-3 wow fadeInUp">
@@ -312,12 +309,12 @@
                 <div class="row">
                     <div class="col-sm-12 wow fadeInUp">
                         <div class="working-from-home-box text-center">
-                            <h6 class="small-size white-color">WORKING FROM HOME?</h6>
-                            <h1 class="title-big-text white-color">Our digital systems are built to help businesses from
-                                1 to 1000+</h1>
-                            <p class="small-size white-color">For more Information or custom packages please get in
-                                touch</p>
-                            <a href="#" class="button pink-bg">LEARN MORE</a>
+                            <h6 class="small-size white-color">{{ getOption('section9_title', 'WORKING FROM HOME?') }}</h6>
+                            <h1 class="title-big-text white-color">{{ getOption('section9_big_text', 'Our digital systems are built to help businesses from
+                                1 to 1000+') }}</h1>
+                            <p class="small-size white-color">{{ getOption('section9_description', 'For more Information or custom packages please get in
+                                touch') }}</p>
+                            <a href="{{ getOption('section9_url', '') }}" class="button pink-bg">LEARN MORE</a>
                         </div>
                     </div>
                 </div>

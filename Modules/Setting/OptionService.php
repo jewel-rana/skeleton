@@ -32,8 +32,7 @@ class OptionService implements OptionServiceInterface
     {
         collect($data)->each(function($value, $key) use($data, $tab) {
             Option::updateOrCreate([
-                'field' => $key,
-                'value' => $value
+                'field' => $key
                 ],
                 [
                     'tab' => $tab,

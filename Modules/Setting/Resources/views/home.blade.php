@@ -303,12 +303,12 @@
         </div>
     </div>
 
+
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Section 8</h4>
         </div>
         <div class="card-body">
-            <input type="hidden" name="tab" value="home">
             <div class="row">
                 <div class="col-8">
                     <div class="form-group row">
@@ -325,18 +325,6 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3 col-form-label">
-                            <label for="section8_big_text">Big Text</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="input-group input-group-merge">
-                                <input type="text" name="section8_big_text"
-                                       value="{{ old('section8_big_text', getOption('section8_big_text')) }}"
-                                       class="form-control" placeholder="Title">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-3 col-form-label">
                             <label for="section8_title">Description</label>
                         </div>
                         <div class="col-sm-9">
@@ -346,15 +334,63 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Section 9</h4>
+        </div>
+        <div class="card-body">
+            <input type="hidden" name="tab" value="home">
+            <div class="row">
+                <div class="col-8">
                     <div class="form-group row">
                         <div class="col-sm-3 col-form-label">
-                            <label for="section8_title">Button Url</label>
+                            <label for="section9_title">Title</label>
                         </div>
                         <div class="col-sm-9">
                             <div class="input-group input-group-merge">
-                                <input type="text" name="section8_url" class="form-control" placeholder="Url"
-                                       value="{{ old('section8_url', getOption('section8_url')) }}">
+                                <input type="text" name="section9_title"
+                                       value="{{ old('section9_title', getOption('section9_title')) }}"
+                                       class="form-control" placeholder="Title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="section8_big_text">Big Text</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="section9_big_text"
+                                       value="{{ old('section9_big_text', getOption('section9_big_text')) }}"
+                                       class="form-control" placeholder="Title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="section9_title">Description</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <textarea type="text" name="section9_description" class="form-control"
+                                          placeholder="Description">{{ old('section9_description', getOption('section9_description')) }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="section9_title">Button Url</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="section9_url" class="form-control" placeholder="Url"
+                                       value="{{ old('section9_url', getOption('section9_url')) }}">
                             </div>
                         </div>
                     </div>
