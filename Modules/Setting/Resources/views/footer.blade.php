@@ -16,9 +16,74 @@
                         <div class="col-sm-9">
                             <div class="input-group input-group-merge">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i data-feather="user"></i></span>
+                                    <span class="input-group-text">&copy;</span>
                                 </div>
                                 <input type="text" id="copyright" class="form-control" value="{{ old('copyright', getOption('copyright')) }}" name="copyright" placeholder="Copyright" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Footer menus</h4><hr/>
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="footer1_menu">Footer 1 menu (Box 2)</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <select id="footer1_menu" class="form-control" name="footer1_menu" required>
+                                    <option value="">Select menu</option>
+                                    @foreach($menu_lists as $key => $value)
+                                        <option value="{{ $key }}" @if(getOption('footer1_meu') === $key) selected @endif>{{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="footer2_menu">Footer menu 2 (Box 2)</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <select id="footer2_menu" class="form-control" name="footer2_menu" required>
+                                    <option value="">Select menu</option>
+                                    @foreach($menu_lists as $key => $value)
+                                        <option value="{{ $key }}" @if(getOption('footer2_menu') === $key) selected @endif>{{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="footer3_menu">Footer menu 3 (Box 2)</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <select id="footer3_menu" class="form-control" name="footer3_menu" required>
+                                    <option value="">Select menu</option>
+                                    @foreach($menu_lists as $key => $value)
+                                        <option value="{{ $key }}" @if(getOption('footer3_menu') === $key) selected @endif>{{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 col-form-label">
+                            <label for="footer4_menu">Footer menu 4 (Box 4 Second)</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-merge">
+                                <select id="footer4_menu" class="form-control" name="footer4_menu" required>
+                                    <option value="">Select menu</option>
+                                    @foreach($menu_lists as $key => $value)
+                                        <option value="{{ $key }}" @if(getOption('footer4_menu') === $key) selected @endif>{{ $value }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

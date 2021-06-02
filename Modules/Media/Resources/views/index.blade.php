@@ -5,7 +5,7 @@
     <div class="row" id="basic-table">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header mediaModal">
 
                 </div>
                 <div class="card-body">
@@ -31,6 +31,7 @@
         </div>
     </div>
     <!-- Basic Tables end -->
+    @include('media::modal')
 @endsection
 
 @section('header')

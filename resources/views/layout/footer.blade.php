@@ -14,41 +14,53 @@
         <div class="col-5">
             <div class="footer-box">
                 <h5 class="white-color">RESIDENTIAL</h5>
-                <ul class="footer-link">
-                    <li><a href="#">SUPERFAST PACKAGES</a></li>
-                    <li><a href="#">BROADBAND</a></li>
-                    <li><a href="#">PHONE</a></li>
-                    <li><a href="#">BROADBAND & PHONE</a></li>
-                    <li><a href="#">MOBILE</a></li>
-                </ul>
-                {!! getMenu(getOption('footer_menu_1')) !!}
+                @if(getMenu(getOption('footer1_menu')) != null)
+                    {!! getMenu(getOption('footer1_menu')) !!}
+                @else
+                    <ul class="footer-link">
+                        <li><a href="#">SUPERFAST PACKAGES</a></li>
+                        <li><a href="#">BROADBAND</a></li>
+                        <li><a href="#">PHONE</a></li>
+                        <li><a href="#">BROADBAND & PHONE</a></li>
+                        <li><a href="#">MOBILE</a></li>
+                    </ul>
+                @endif
             </div>
         </div>
         <div class="col-5">
             <div class="footer-box">
                 <h5 class="white-color">CONTACT US</h5>
-                <ul class="footer-link">
-                    <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#">TERMS AND CONDITIONS</a></li>
-                    <li><a href="#">AFFILIATES</a></li>
-                </ul>
-                {!! getMenu(getOption('footer_menu_2')) !!}
+                @if(getMenu(getOption('footer2_menu')) != null)
+                    {!! getMenu(getOption('footer2_menu')) !!}
+                @else
+                    <ul class="footer-link">
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">TERMS AND CONDITIONS</a></li>
+                        <li><a href="#">AFFILIATES</a></li>
+                    </ul>
+                @endif
             </div>
         </div>
         <div class="col-5">
             <div class="footer-box">
                 <h5 class="white-color">CORPORATE INFORMATION</h5>
-                <ul class="footer-link">
-                    <li><a href="#">Partners</a></li>
-                </ul>
-                {!! getMenu(getOption('footer_menu_3')) !!}
+                @if(getMenu(getOption('footer3_menu')) != null)
+                    {!! getMenu(getOption('footer3_menu')) !!}
+                @else
+                    <ul class="footer-link">
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                @endif
                 <h5 class="white-color">HELP & SUPPORT</h5>
-                <ul class="footer-link">
-                    <li><a href="{{route('faq')}}">FREQUENTLY ASKED QUESTIONS</a></li>
-                    <li><a href="#">MY ACCOUNT</a></li>
-                    <li><a href="#">MAKE A PAYMENT</a></li>
-                </ul>
-                {!! getMenu(getOption('footer_menu_4')) !!}
+                @if(getMenu(getOption('footer4_menu')) != null)
+                    {!! getMenu(getOption('footer4_menu')) !!}
+                @else
+                    <ul class="footer-link">
+                        <li><a href="{{route('faq')}}">FREQUENTLY ASKED QUESTIONS</a></li>
+                        <li><a href="#">MY ACCOUNT</a></li>
+                        <li><a href="#">MAKE A PAYMENT</a></li>
+                    </ul>
+                @endif
             </div>
         </div>
         <div class="col-5">
