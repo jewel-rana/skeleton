@@ -15,7 +15,8 @@ class MenuCreateRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|unique:menus,name',
-            'description' => 'bail|nullable'
+            'description' => 'bail|nullable',
+            'wrapper_class' => 'bail|nullable|alpha_dash'
         ];
     }
 

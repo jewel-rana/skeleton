@@ -3,6 +3,7 @@
 namespace Modules\Media\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -13,13 +14,14 @@ use Modules\Category\Http\Requests\CategoryUpdateRequest;
 use Modules\Media\Entities\Media;
 use Modules\Media\Http\Requests\MediaCreateRequest;
 use Modules\Media\Http\Requests\MediaUpdateRequest;
+use Modules\Media\MediaService;
 use Yajra\DataTables\Facades\DataTables;
 
 class MediaController extends Controller
 {
     private $medias;
 
-    public function __construct(CategoryService $medias)
+    public function __construct(MediaService $medias)
     {
         $this->medias = $medias;
     }
@@ -125,5 +127,17 @@ class MediaController extends Controller
 
         $media->delete();
         return redirect()->back();
+    }
+
+    public function jqUpload(Request $request): JsonResponse
+    {
+        $data = ['status' => false, 'message' => 'Could not upload'];
+        dd($request->allFiles());
+        try {
+            $this->medias->handle($request->file('attachment'));
+        } catch (\Throwable $exception) {
+            $data['message'] = $exception->getMessage();
+        }
+        return response()->json($data);
     }
 }

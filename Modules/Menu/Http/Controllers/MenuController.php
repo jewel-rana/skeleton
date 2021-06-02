@@ -51,8 +51,9 @@ class MenuController extends Controller
         try {
            $this->menus->create($request->validated());
         } catch (\Throwable $exception) {
+            dd($exception);
             session()->flash('error', $exception->getMessage());
-            return redirect()->back();
+            return redirect()->back()->withInput($request->all());
         }
 
         return redirect()->route('menu.index');

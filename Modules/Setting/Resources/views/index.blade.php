@@ -57,9 +57,30 @@
         <!-- Tabs with Icon ends -->
     </section>
     <!-- Basic Tabs end -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('footer')
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="/assets/admin/js/media.js"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.upload.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -109,42 +130,36 @@
                     $(textInput).val($(this).val());
                     $(submitBtn).removeAttr('disabled');
                 });
-                //csrf tockent send to header
                 $(form).submit( function(e) {
                     e.defaultPrevented;
-                    var bar = $('.bar');
-                    var percent = $('.percent');
-                    var status = $('#status');
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+                    let bar = $('.bar');
+                    let percent = $('.percent');
+                    let status = $('#status');
                     $(this).ajaxSubmit({
                         beforeSend: function() {
                             status.empty();
-                            var percentVal = '0%';
+                            let percentVal = '0%';
                             bar.width(percentVal);
                             percent.html(percentVal);
                         },
                         uploadProgress: function(event, position, total, percentComplete) {
-                            var percentVal = percentComplete + '%';
+                            let percentVal = percentComplete + '%';
                             bar.width(percentVal);
                             percent.html(percentVal);
                         },
                         success: function() {
-                            var percentVal = '100%';
+                            let percentVal = '100%';
                             bar.width(percentVal)
                             percent.html(percentVal);
                         },
                         complete: function(xhr){
-                            var msg = xhr.responseText;
+                            let msg = xhr.responseText;
                             if( msg == 'no') {
                                 status.html("<div class='alert alert-warning'>Cannot upload files.</div>");
                             } else {
-                                var fileInputField = jQUploadParent.find('input[name=' + role + ']');
+                                let fileInputField = jQUploadParent.find('input[name=' + role + ']');
                                 fileInputField.val(msg);
-                                var imgPreview = jQUploadParent.find('.imgPreview');
+                                let imgPreview = jQUploadParent.find('.imgPreview');
                                 imgPreview.html('<img src="' + msg + '" class="">');
                                 // progressParent.hide();
                                 $(modal).modal('hide');
@@ -154,6 +169,7 @@
                     return false;
                 });
                 $(modal).modal("show");
+                return false;
             });
         });
     </script>

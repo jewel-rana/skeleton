@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Menu extends Model
 {
-   protected $guarded  = ['name', 'description', 'wrapper_class'];
+   protected $fillable  = ['name', 'description', 'wrapper_class'];
    public $timestamps = false;
 
    public function items(): HasMany

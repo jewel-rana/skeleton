@@ -14,7 +14,7 @@ class MediaCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'uploadfile' => 'bail|nullable'
         ];
     }
 

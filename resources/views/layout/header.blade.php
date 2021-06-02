@@ -45,9 +45,9 @@
                     </div>
                     <div class="action-box">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('login') }}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('login') }}"><i class="fa fa-briefcase" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('login') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>

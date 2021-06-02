@@ -15,7 +15,8 @@ class MenuUpdateRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|unique:menus,name,' . $this->menu,
-            'description' => 'bail|nullable'
+            'description' => 'bail|nullable',
+            'wrapper_class' => 'bail|nullable|alpha_dash'
         ];
     }
 

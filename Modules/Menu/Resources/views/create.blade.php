@@ -32,6 +32,12 @@
                                         <textarea name="description" rows="4" class="form-control">{{ old('description') }}</textarea>
                                     </div>
                                 </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="title">Wrapper Class</label>
+                                        <input type="text" name="wrapper_class" class="form-control" value="{{ old('wrapper_class') }}">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary form-control mr-1">{{ __('Create Menu') }}</button>
                                 </div>

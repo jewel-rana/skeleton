@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/assets/js')
+    .js('Modules/Media/Resources/assets/js/media.js', 'public/assets/admin/js')
     .postCss('resources/css/app.css', 'public/assets/css');
 mix.options({
     postCss: [
