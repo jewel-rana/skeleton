@@ -4,9 +4,9 @@
             <div class="footer-box">
                 <h5 class="white-color">CONTACT US</h5>
                 <ul>
-                    <li><a href="tel:0343 538 6611">0343 538 6611</a></li>
-                    <li><a href="tel:0343 538 6666">0343 538 6666</a></li>
-                    <li><a href="malito:Email@Poptelecom.Com">Email@Poptelecom.Com</a></li>
+                    <li><a href="tel:{{ getOption('company_phone', '0343 538 6611') }}">Ph.: {{ getOption('company_phone', '0343 538 6611') }}</a></li>
+                    <li><a href="tel:{{ getOption('company_fax', '0343 538 6666') }}">Fx.: {{ getOption('company_fax', '0343 538 6666') }}</a></li>
+                    <li><a href="malito:{{ getOption('company_email', 'email@poptelecom.com') }}">{{ getOption('company_email', 'email@poptelecom.com') }}</a></li>
                     <li><a href="#">Find A Store</a></li>
                 </ul>
             </div>
@@ -21,6 +21,7 @@
                     <li><a href="#">BROADBAND & PHONE</a></li>
                     <li><a href="#">MOBILE</a></li>
                 </ul>
+                {!! getMenu(getOption('footer_menu_1')) !!}
             </div>
         </div>
         <div class="col-5">
@@ -31,20 +32,23 @@
                     <li><a href="#">TERMS AND CONDITIONS</a></li>
                     <li><a href="#">AFFILIATES</a></li>
                 </ul>
+                {!! getMenu(getOption('footer_menu_2')) !!}
             </div>
         </div>
         <div class="col-5">
             <div class="footer-box">
                 <h5 class="white-color">CORPORATE INFORMATION</h5>
-                <ul>
+                <ul class="footer-link">
                     <li><a href="#">Partners</a></li>
                 </ul>
+                {!! getMenu(getOption('footer_menu_3')) !!}
                 <h5 class="white-color">HELP & SUPPORT</h5>
                 <ul class="footer-link">
                     <li><a href="{{route('faq')}}">FREQUENTLY ASKED QUESTIONS</a></li>
                     <li><a href="#">MY ACCOUNT</a></li>
                     <li><a href="#">MAKE A PAYMENT</a></li>
                 </ul>
+                {!! getMenu(getOption('footer_menu_4')) !!}
             </div>
         </div>
         <div class="col-5">
@@ -53,9 +57,9 @@
                     <img src="./assets/images/Logo.png">
                 </div>
                 <ul>
-                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ getOption('social_instagram') }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ getOption('social_twitter') }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ getOption('social_facebook') }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>

@@ -40,7 +40,10 @@ class MenuRepository extends BaseRepository implements MenuRepositoryInterface
     {
         return Cache::rememberForever($name, function () use($name){
             $menu = $this->model->where('name', $name)->first();
-            return $this->buildMenu($menu->items, $menu->wrapper_class);
+            if($menu) {
+                return $this->buildMenu($menu->items, $menu->wrapper_class);
+            }
+            return '';
         });
     }
 

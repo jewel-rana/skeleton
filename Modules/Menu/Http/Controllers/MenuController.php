@@ -8,6 +8,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Modules\Menu\Entities\Menu;
+use Modules\Menu\Events\MenuUpdateEvent;
 use Modules\Menu\Http\Requests\MenuCreateRequest;
 use Modules\Menu\Http\Requests\MenuUpdateRequest;
 use Modules\Menu\MenuService;
@@ -87,6 +88,7 @@ class MenuController extends Controller
     {
         try {
             $this->menus->update($request->validated(), $id);
+            event(new MenuUpdateEvent());
         } catch (\Throwable $exception) {
             session()->flash('error', $exception->getMessage());
             return redirect()->back();
