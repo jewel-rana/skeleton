@@ -12,5 +12,6 @@
     "Brand": true,
     "Media": true,
     "Menu": true,
-    "Setting": true
+    "Setting": true,
+    "Cart": true
 }
