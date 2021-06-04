@@ -13,5 +13,6 @@
     "Media": true,
     "Menu": true,
     "Setting": true,
-    "Cart": true
+    "Cart": true,
+    "Order": true
 }
