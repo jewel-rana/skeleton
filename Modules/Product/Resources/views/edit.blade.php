@@ -332,8 +332,8 @@
                             <div class="form-group">
                                 <label for="status">Publish status</label>
                                 <select id="status" class="form-control" name="status">
-                                    <option value="{{ \App\Constants\AppConst::PRODUCT_PUBLISH }}" @if(old('status', $product->status) === \App\Constants\AppConst::PRODUCT_PUBLISH) selected @endif>Publish</option>
-                                    <option value="{{ \App\Constants\AppConst::PRODUCT_DRAFT }}" @if(old('status', $product->status) === \App\Constants\AppConst::PRODUCT_DRAFT) selected @endif>Draft</option>
+                                    <option value="{{ \App\Constants\Constant::PRODUCT_PUBLISH }}" @if(old('status', $product->status) === \App\Constants\Constant::PRODUCT_PUBLISH) selected @endif>Publish</option>
+                                    <option value="{{ \App\Constants\Constant::PRODUCT_DRAFT }}" @if(old('status', $product->status) === \App\Constants\Constant::PRODUCT_DRAFT) selected @endif>Draft</option>
                                 </select>
                             </div>
 
