@@ -1,4 +1,3 @@
-
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
 
@@ -35,7 +34,7 @@
         });
     });
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         if (feather) {
             feather.replace({
                 width: 14,
@@ -45,6 +44,7 @@
     });
 </script>
 @yield('footer')
+@yield('footerChild')
 </body>
 <!-- END: Body-->
 </html>

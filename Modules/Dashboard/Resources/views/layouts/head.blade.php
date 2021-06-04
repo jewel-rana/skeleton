@@ -43,6 +43,7 @@
     <script> let basePath = "{{url('/')}}";</script>
 
     @yield('header')
+    @yield('headerChild')
 </head>
 <!-- END: Head-->
 

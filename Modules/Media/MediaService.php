@@ -16,11 +16,11 @@ class MediaService
     public function __construct(MediaRepositoryInterface $repository)
     {
         $this->repository = $repository;
+        $this->dir = 'uploads/files/' . date('Y') . '/' . date('m');
     }
 
-    public function upload($files, $dir = 'uploads/files')
+    public function upload($files)
     {
-        $this->dir = $dir;
         if(is_array($files)) {
             foreach($files as $file) {
                 return $this->handle($file);

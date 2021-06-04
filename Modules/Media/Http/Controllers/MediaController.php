@@ -33,7 +33,7 @@ class MediaController extends Controller
     public function index( Request $request)
     {
         if($request->wantsJson()) {
-            $medias = Media::select(['id', 'attachment', 'type', 'size', 'dimension']);
+            $medias = Media::select(['id', 'attachment', 'type', 'size', 'dimension'])->orderByDesc('created_at');
 
             return Datatables::of($medias)
                 ->addColumn('thumbnail', function($media) {
@@ -64,18 +64,24 @@ class MediaController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param MediaCreateRequest $request
-     * @return RedirectResponse
+     * @return JsonResponse
      */
-    public function store(MediaCreateRequest $request): RedirectResponse
+    public function store(MediaCreateRequest $request): JsonResponse
     {
+        $data = ['status' => false, 'message' => 'Upload failed'];
         try {
-            $this->medias->create($request->validated());
+            if (is_executable($request->file('file'))) {
+                throw new \Exception('File not allowed to upload');
+            }
+            $media = $this->medias->handle($request->file('file'));
+            $data['status'] = true;
+            $data['file'] = $media->attachment;
+            dd($data);
         } catch (\Throwable $exception) {
-            session()->flash('error', $exception->getMessage());
-            return redirect()->back();
+            $data['message'] = $exception->getMessage();
         }
 
-        return redirect()->route('media.index');
+        return response()->json($data);
     }
 
     /**
