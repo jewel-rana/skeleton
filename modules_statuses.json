@@ -1,0 +1,18 @@
+{
+    "Dashboard": true,
+    "Product": true,
+    "Category": true,
+    "Page": true,
+    "User": true,
+    "Customer": true,
+    "Role": true,
+    "Permission": true,
+    "Deal": true,
+    "Slider": true,
+    "Brand": true,
+    "Media": true,
+    "Menu": true,
+    "Setting": true,
+    "Cart": true,
+    "Order": true
+}
