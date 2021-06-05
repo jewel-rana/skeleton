@@ -1,6 +1,0 @@
-import "./vendors/js/vendors.min.js"
-import "./vendors/js/charts/apexcharts.js"
-import "./vendors/js/extensions/toastr.min.js"
-import "./core/app-menu.js"
-import "./core/app.js"
-import "./scripts/pages/dashboard-ecommerce.js"
